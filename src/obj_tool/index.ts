@@ -1,0 +1,1 @@
+let types3 = 'obj_tool'

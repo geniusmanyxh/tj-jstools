@@ -1,0 +1,1 @@
+let types4 = 'str_tool'

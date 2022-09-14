@@ -2,9 +2,11 @@
   "name": "jstools",
   "version": "1.0.0",
   "description": "A diverse JS tool library",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test",
+    "build": "npx tsc -p ."
   },
   "homepage": "https://github.com/geniusmanyxh/tj-jstools",
   "bugs": "https://github.com/geniusmanyxh/tj-jstools/issues",
@@ -17,6 +19,29 @@
     "type": "git",
     "url": "https://github.com/geniusmanyxh/tj-jstools"
   },
-  "author": "geniusman",
-  "license": "MIT"
+  "author": {
+    "name": "geniusman",
+    "email": "16245929@qq.com",
+    "url": "https://www.itbooks.work"
+  },
+  "contributors": [
+    {
+      "name": "geniusmanyxh",
+      "email": "geniusmanyxh@gmail.com",
+      "url": "https://www.itbooks.work"
+    },
+    {
+      "name": "geniusguys",
+      "email": "16245929@qq.com",
+      "url": "https://www.itbooks.work"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=16.6.1",
+    "npm": ">=8.15.0"
+  }
 }

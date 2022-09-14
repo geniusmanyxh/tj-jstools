@@ -1,0 +1,1 @@
+let types6 = 'storage_tool'

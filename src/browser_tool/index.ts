@@ -1,0 +1,1 @@
+let types1 = 'browser_tool'

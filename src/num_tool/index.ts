@@ -1,0 +1,1 @@
+let types2 = 'num_tool'
