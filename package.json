@@ -1,11 +1,22 @@
 {
   "name": "jstools",
   "version": "1.0.0",
-  "description": "",
+  "description": "A diverse JS tool library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/geniusmanyxh/tj-jstools",
+  "bugs": "https://github.com/geniusmanyxh/tj-jstools/issues",
+  "keywords": [
+    "js",
+    "tool",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geniusmanyxh/tj-jstools"
+  },
   "author": "geniusman",
-  "license": "ISC"
+  "license": "MIT"
 }
