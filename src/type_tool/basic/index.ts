@@ -1,25 +1,27 @@
 import {paramsNullError} from '../../common/paramUtils'
 
 const isBasicType = function isType(type: string) {
-  // const params = String(type).toLocaleLowerCase()
-  return function basicType<T>(value: T): boolean {
+  const params = String(type).toLocaleLowerCase()
+  return function basicType(value:unknown): boolean {
     if (arguments.length === 0) {
-      paramsNullError(`${value}方法的`)
+      paramsNullError(`is${type}方法的`)
     }
 
-    return typeof value === type
+    return typeof value === params
   }
 }
 
-const isBoolean = isBasicType('boolean')
-const isNumber = isBasicType('number')
-const isString = isBasicType('string')
-const isUndefined = isBasicType('undefined')
-const isSymbol = isBasicType('symbol')
+const isBoolean = isBasicType('Boolean')
+const isNumber = isBasicType('Number')
+const isString = isBasicType('String')
+const isUndefined = isBasicType('Undefined')
+const isSymbol = isBasicType('Symbol')
+const isBigint = isBasicType('Bigint')
 export {
   isBoolean,
   isNumber,
   isString,
   isUndefined,
-  isSymbol
+  isSymbol,
+  isBigint
 }

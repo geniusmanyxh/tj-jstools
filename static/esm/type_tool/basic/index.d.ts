@@ -1,6 +1,7 @@
-declare const isBoolean: <T>(value: T) => boolean;
-declare const isNumber: <T>(value: T) => boolean;
-declare const isString: <T>(value: T) => boolean;
-declare const isUndefined: <T>(value: T) => boolean;
-declare const isSymbol: <T>(value: T) => boolean;
-export { isBoolean, isNumber, isString, isUndefined, isSymbol };
+declare const isBoolean: (value: unknown) => boolean;
+declare const isNumber: (value: unknown) => boolean;
+declare const isString: (value: unknown) => boolean;
+declare const isUndefined: (value: unknown) => boolean;
+declare const isSymbol: (value: unknown) => boolean;
+declare const isBigint: (value: unknown) => boolean;
+export { isBoolean, isNumber, isString, isUndefined, isSymbol, isBigint };

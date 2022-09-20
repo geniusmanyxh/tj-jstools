@@ -24,19 +24,19 @@ module.exports = {
       file: 'static/cjs/index.js', // 打包成commonjs
       format: 'cjs',
       sourcemap: true,
-      exports: 'default',
+      // exports: 'default',
     },
     {
       file: 'static/esm/index.js', // 打包成esmodule
       format: 'esm',
       sourcemap: true,
-      exports: 'default',
+      // exports: 'default',
     },
     {
-      file: 'static/index.js',
+      file: 'static/umd/index.js',
       format: 'umd',
       sourcemap: true,
-      exports: 'default',
+      // exports: 'default',
       name: '_tj' // umd 规范，一定要有一个名字，不然打包报错
     },
   ],

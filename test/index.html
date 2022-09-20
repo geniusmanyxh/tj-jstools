@@ -5,15 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
- <script src="../static/index.js"></script>
+ <script src="../static/umd/index.js"></script>
 </head>
 <body>
- <script>
-  const {isNumber,isBoolean,isString} = _tj.tjType
+  <script type="module">
+    import tj from '../static/esm/index.js'
+    console.log(tj)
+  </script>
+ <script src="">
+  
+  const {isNumber,isBoolean,isString,isUndefined} = _tj.tjType
+  let a;
   console.log(_tj.tjType)
   console.log(isNumber('5'))
   console.log(isBoolean(true))
   console.log(isNumber(5))
+  console.log(isUndefined(a))
  </script>
 </body>
 </html>
