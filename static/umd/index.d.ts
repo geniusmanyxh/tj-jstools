@@ -1,9 +1,11 @@
 import { isFloat, isInfinite } from './type_tool/numDel';
-import { getType, getArrayAllType, getArrayTypeDetail } from './type_tool/complexFun';
+import { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail } from './type_tool/complexFun';
 declare const tjType: {
     getType: typeof getType;
     getArrayAllType: typeof getArrayAllType;
     getArrayTypeDetail: typeof getArrayTypeDetail;
+    getObjectAllType: typeof getObjectAllType;
+    getObjectTypeDetail: typeof getObjectTypeDetail;
     isBoolean: (value: unknown) => boolean;
     isNumber: (value: unknown) => boolean;
     isString: (value: unknown) => boolean;

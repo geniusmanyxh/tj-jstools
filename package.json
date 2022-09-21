@@ -2,8 +2,11 @@
   "name": "tj-jstools",
   "version": "1.0.0",
   "description": "A diverse JS tool library",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "static/cjs/index.js",
+  "module": "static/esm/index.js",
+  "browser": "static/umd/index.js",
+  "types": "static/cjs/index.d.ts",
+  "files": ["static"],
   "scripts": {
     "test": "node test",
     "build": "npx tsc -p .",

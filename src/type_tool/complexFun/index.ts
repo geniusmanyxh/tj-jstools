@@ -135,6 +135,62 @@ function getArrayTypeDetail(params: any[],selectType?: returnTypeStr): arrayType
   return resArr
 }
 
-function getArrayTypeOfIndex(paramArr: any[], idx: number | string) {}
+function getObjectAllType(params: object):returnTypeStr[] {
+  if (!objT.isObject(params)) {
+    paramsNullError("","getObjectAllType方法接收的参数应该是一个对象")
+  }
+  let resArr:returnTypeStr[] = []
+  if (arguments.length > 0) {
 
-export { getType, getArrayAllType, getArrayTypeDetail }
+    for (const key in params) {
+      if (Object.hasOwnProperty.call(params, key)) {
+        let val = params[key]
+        resArr.push(getType(val))
+      }
+    }
+  }
+
+  return resArr
+}
+
+function getObjectTypeDetail(params:object, selectType?:returnTypeStr):objectTypeDetail[] {
+  if (!objT.isObject(params)) {
+    paramsNullError("","getObjectTypeDetail方法接收的参数应该是一个对象")
+  }
+  let resArr:objectTypeDetail[] = []
+  if (arguments.length > 0) {
+   
+    let selectArr:objectTypeDetail[] = []
+    let allArr:objectTypeDetail[] = []
+
+    for (const key in params) {
+        
+      if (Object.hasOwnProperty.call(params, key)) {
+        let value = params[key]
+        let type = getType(value)
+
+        allArr.push({ key, value, type })
+
+        if (selectType) {
+          if (selectType === 'number' && (['int','float'].includes(type))) {
+            selectArr.push({ key, value, type })
+          } else if(selectType === type) {
+            selectArr.push({ key, value, type })
+          }
+        }
+        continue
+        
+      }
+    }
+   
+    if (selectType) {
+      resArr = [...selectArr]
+    } else {
+      resArr = [...allArr]
+    }
+  }
+ 
+  return resArr
+}
+
+export { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail }

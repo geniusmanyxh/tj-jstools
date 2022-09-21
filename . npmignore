@@ -2,4 +2,6 @@ node_modules
 .vscode
 docs
 test
-.DS_Store 
+.DS_Store
+.gitignore
+rollup.config.js 

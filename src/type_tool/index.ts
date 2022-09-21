@@ -8,12 +8,14 @@ import {
 } from './basic'
 import { isFloat, isInt, isFinite, isNaN, isInfinite } from './numDel'
 import { isNull, isArray, isDate, isFunction, isObject } from './objDel'
-import {getType, getArrayAllType, getArrayTypeDetail} from './complexFun'
+import {getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail} from './complexFun'
 
 export {
   getType,
   getArrayAllType,
   getArrayTypeDetail,
+  getObjectAllType,
+  getObjectTypeDetail,
   isBoolean,
   isNumber,
   isString,

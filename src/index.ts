@@ -10,12 +10,14 @@ import {
 } from './type_tool/basic'
 import { isFloat, isInt, isFinite, isNaN, isInfinite } from './type_tool/numDel'
 import { isNull, isArray, isDate, isFunction, isObject } from './type_tool/objDel'
-import {getType, getArrayAllType, getArrayTypeDetail} from './type_tool/complexFun'
+import {getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail} from './type_tool/complexFun'
 
 const tjType = {
   getType,
   getArrayAllType,
   getArrayTypeDetail,
+  getObjectAllType,
+  getObjectTypeDetail,
   isBoolean,
   isNumber,
   isString,
