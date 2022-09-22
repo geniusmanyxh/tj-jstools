@@ -4,7 +4,6 @@ import {paramsNullError} from '../../common/paramUtils'
 
 type returnTypeStr =
   | 'string'
-  | 'number'
   | 'bigint'
   | 'boolean'
   | 'symbol'
@@ -18,7 +17,6 @@ type returnTypeStr =
   | 'int'
   | 'float'
   | 'infinite'
-  | 'finite'
   | 'NaN'
 
 type arrayTypeDetail = {
@@ -48,8 +46,8 @@ function getType(params: unknown): returnTypeStr {
     console.warn('getType方法没有接收到参数,返回的类型为undefined')
     return 'undefined'
   }
-  let rtnStr: returnTypeStr = 'string'
-  let typeStr: returnTypeStr = typeof params
+  let rtnStr: returnTypeStr | 'number' = 'string'
+  let typeStr: returnTypeStr | 'number' = typeof params
   let typeFlag = simpleTypeArr.includes(typeStr)
 
   if (typeFlag) {
@@ -62,8 +60,6 @@ function getType(params: unknown): returnTypeStr {
         rtnStr = 'float'
       } else if (numT.isNaN(params)) {
         rtnStr = 'NaN'
-      } else if (numT.isFinite(params)) {
-        rtnStr = 'finite'
       } else if (numT.isInfinite(params)) {
         rtnStr = 'infinite'
       }
@@ -82,7 +78,7 @@ function getType(params: unknown): returnTypeStr {
     }
   }
 
-  return rtnStr
+  return rtnStr as returnTypeStr
 }
 
 function getArrayAllType(params: any[]): returnTypeStr[] {
@@ -99,7 +95,7 @@ function getArrayAllType(params: any[]): returnTypeStr[] {
   return rtnArr
 }
 
-function getArrayTypeDetail(params: any[],selectType?: returnTypeStr): arrayTypeDetail[] {
+function getArrayTypeDetail(params: any[],selectType?: returnTypeStr | 'number'): arrayTypeDetail[] {
   if (!objT.isArray(params)) {
     paramsNullError("","getArrayTypeDetail方法接收的参数应该是一个数组")
   }
@@ -153,7 +149,7 @@ function getObjectAllType(params: object):returnTypeStr[] {
   return resArr
 }
 
-function getObjectTypeDetail(params:object, selectType?:returnTypeStr):objectTypeDetail[] {
+function getObjectTypeDetail(params:object, selectType?:returnTypeStr | 'number'):objectTypeDetail[] {
   if (!objT.isObject(params)) {
     paramsNullError("","getObjectTypeDetail方法接收的参数应该是一个对象")
   }
