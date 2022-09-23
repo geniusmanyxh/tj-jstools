@@ -21,12 +21,11 @@
 // console.log(tjType.getObjectAllType({a:1/0,b:true,c:6.02,d:()=>{}}))
 // console.log(tjType.getObjectTypeDetail({a:1/0,b:true,c:6.02,d:()=>{}},'number'))
 
-const {tjType:tj,getUrlParams} = require('tj-jstools')
+const {tjType:tj} = require('tj-jstools')
+console.log(tj)
+// tj.isBoolean()
+// let url = `http://www.baidu.com?name=Jack#9&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#9`
 
-// console.log(tj)
+// let rtn = getUrlParams()
 
-let url = `http://www.baidu.com?name=Jack#9&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#9`
-
-let rtn = getUrlParams()
-
-console.log(rtn)
+// console.log(rtn)

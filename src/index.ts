@@ -43,6 +43,28 @@ const tjType = {
   isObject,
 }
 
-export {tjType, tjUrl} 
+export {getUrlParams,
+  converParamsToUrl,
+  getType,
+  getArrayAllType,
+  getArrayTypeDetail,
+  getObjectAllType,
+  getObjectTypeDetail,
+  isBoolean,
+  isNumber,
+  isString,
+  isSymbol,
+  isUndefined,
+  isBigint,
+  isInt,
+  isFloat,
+  isNaN,
+  isFinite,
+  isInfinite,
+  isNull,
+  isArray,
+  isDate,
+  isFunction,
+  isObject,} 
 
 

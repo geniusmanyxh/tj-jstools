@@ -10,10 +10,11 @@
 <body>
   <script>
     let url = `http://www.baidu.com?name=Jack#9&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#9`
+    this._tj.isBoolean()
     const {getUrlParams} = this._tj
-    // console.log(getUrlParams())
-    // console.log(getUrlParams('age'))
-    // console.log(getUrlParams({url,decodeUrlType:'decodeURIType'}))
+    console.log(getUrlParams())
+    console.log(getUrlParams('age'))
+    console.log(getUrlParams({url,decodeUrlType:'decodeURIType'}))
     console.log(getUrlParams({decodeUrlType:'decodeURIType',parseUrlType:'URLSearchParamsType'}))
   </script>
 </body>

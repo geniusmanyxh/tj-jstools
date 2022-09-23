@@ -16,7 +16,7 @@ const ParseUrlFunction:IParseUrlFunction = {
 }
 
 const DecodeUrlType = {
-  nodeType: (url:string) => url,
+  noneType: (url:string) => url,
   decodeURIType:decodeURI,
   decodeURIComponentType:decodeURIComponent
 }
@@ -27,7 +27,7 @@ interface IGetUrlParamsConfig {
   decodeUrlType:decodeUrlType
 }
 const config:IGetUrlParamsConfig = {
-  url: window.location.search,
+  url: globalThis?.location?.search,
   parseUrlType: "splitType",
   decodeUrlType: "noneType"
 }
