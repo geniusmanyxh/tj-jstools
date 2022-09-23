@@ -1,5 +1,6 @@
 import { isFloat, isInfinite } from './type_tool/numDel';
 import { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail } from './type_tool/complexFun';
+import { getUrlParams } from './url_tool/urlParams';
 declare const tjType: {
     getType: typeof getType;
     getArrayAllType: typeof getArrayAllType;
@@ -23,4 +24,4 @@ declare const tjType: {
     isFunction: (value: unknown) => boolean;
     isObject: (value: unknown) => boolean;
 };
-export { tjType };
+export { tjType, getUrlParams };

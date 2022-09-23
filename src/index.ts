@@ -12,6 +12,13 @@ import { isFloat, isInt, isFinite, isNaN, isInfinite } from './type_tool/numDel'
 import { isNull, isArray, isDate, isFunction, isObject } from './type_tool/objDel'
 import {getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail} from './type_tool/complexFun'
 
+import { getUrlParams,converParamsToUrl } from './url_tool'
+
+const tjUrl = {
+  getUrlParams,
+  converParamsToUrl
+}
+
 const tjType = {
   getType,
   getArrayAllType,
@@ -36,6 +43,6 @@ const tjType = {
   isObject,
 }
 
-export {tjType} 
+export {tjType, tjUrl} 
 
 

@@ -8,19 +8,13 @@
  <script src="../static/umd/index.js"></script>
 </head>
 <body>
-  <script type="module">
-    import tj from '../static/esm/index.js'
-    console.log(tj)
+  <script>
+    let url = `http://www.baidu.com?name=Jack#9&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#9`
+    const {getUrlParams} = this._tj
+    // console.log(getUrlParams())
+    // console.log(getUrlParams('age'))
+    // console.log(getUrlParams({url,decodeUrlType:'decodeURIType'}))
+    console.log(getUrlParams({decodeUrlType:'decodeURIType',parseUrlType:'URLSearchParamsType'}))
   </script>
- <script src="">
-  
-  const {isNumber,isBoolean,isString,isUndefined} = _tj.tjType
-  let a;
-  console.log(_tj.tjType)
-  console.log(isNumber('5'))
-  console.log(isBoolean(true))
-  console.log(isNumber(5))
-  console.log(isUndefined(a))
- </script>
 </body>
 </html>
