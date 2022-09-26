@@ -1,35 +1,24 @@
 ---
-title: Blogging Like a Hacker
-lang: en-US
-"key": "v-bc9a3e3f9692d"
-date: '2014-5-6'
+title: 工具函数集
+titleTemplate: JSTOOLS
 ---
-# {{ $frontmatter.title }}
-## functions
+# 【{{ $frontmatter.title }} —— {{$frontmatter.titleTemplate}}】
+## 快捷入口
 
-- [Home](/) <!-- sends the user to the root index.md -->
-- [foo](/functions/) <!-- sends the user to index.html of directory foo -->
-- [foo heading](./#functions) <!-- anchors user to a heading in the foo index file -->
-- [bar - index](./typeTool/index) <!-- you can omit extention -->
-- [bar - bool](./typeTool/isBoolean.md) <!-- you can append .md -->
-- [bar - string](./typeTool/isString.html) <!-- or you can append .html -->
+- [首页](/) <!-- sends the user to the root index.md -->
+- [指南首页](/guide/) <!-- sends the user to index.html of directory foo -->
+- [数据类型工具入口](/functions/typeTool/) <!-- anchors user to a heading in the foo index file -->
+- [字符串工具入口](/functions/stringTool/) <!-- you can omit extention -->
+- [数值工具入口](/functions/numberTool/) <!-- you can append .md -->
+- [数组工具入口](/functions/arrayTool/) <!-- or you can append .html -->
+- [对象工具入口](/functions/objectTool/) <!-- or you can append .html -->
+- [URL工具入口](/functions/urlTool/) <!-- or you can append .html -->
+- [浏览器工具入口](/functions/browserTool/) <!-- or you can append .html -->
+- [浏览器存储工具入口](/functions/storageTool/) <!-- or you can append .html -->
 
-# 外部连接
+<!-- # 外部连接
 
-- [vue.org](https://vuejs.org/)
+- [vue.org](https://vuejs.org/) -->
 
-# 表格
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-# 表情
-
-:tada: :100:
-
-# 目录
-[[toc]]
 
