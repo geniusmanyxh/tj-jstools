@@ -1,9 +1,11 @@
+import {paramsNullError} from '../common/paramUtils'
 interface IParamsType {
   [key: string]: string
 }
 
 type parseUrlType = 'splitType' | 'URLSearchParamsType' | 'RegExpType'
 type decodeUrlType = 'noneType' | 'decodeURIType' | 'decodeURIComponentType'
+type encodeUrlType = 'noneType' | 'encodeURI' | 'encodeURIComponent'
 interface IParseUrlFunction {
   [key: string] : (url:string)=>IParamsType
 }
@@ -21,6 +23,24 @@ const DecodeUrlType = {
   decodeURIComponentType:decodeURIComponent
 }
 
+const EncodeUrlType = {
+  noneType: (url:string) => url,
+  encodeURIType:encodeURI,
+  encodeURIComponent:encodeURIComponent
+}
+
+interface IConverParamsConfig {
+  url: string
+  hashValue: string
+  encodeUrlType: encodeUrlType
+}
+
+const ConverParamsConfig:IConverParamsConfig = {
+  url: globalThis?.location?.href,
+  hashValue: '',
+  encodeUrlType: 'noneType'
+}
+
 interface IGetUrlParamsConfig {
   url: string
   parseUrlType:parseUrlType
@@ -36,7 +56,7 @@ function getUrlParams(key?:string):string
 function getUrlParams(options?:IGetUrlParamsConfig):IParamsType
 function getUrlParams(key?:string,options?:IGetUrlParamsConfig): IParamsType | string
 
-function getUrlParams(key?:unknown,options?:unknown): IParamsType | string {
+function getUrlParams(key?:unknown,options?:IGetUrlParamsConfig): IParamsType | string {
   let paramsObj = {}
   let opt: IGetUrlParamsConfig = config
   let keyStr: string = ''
@@ -52,6 +72,13 @@ function getUrlParams(key?:unknown,options?:unknown): IParamsType | string {
     opt = {...config,...arguments[1]}
   }
   urlStr = DecodeUrlType[opt.decodeUrlType](opt.url)
+
+  if (urlStr.includes('?')) {
+    let urlArr:string[] = urlStr.split('?') 
+    if (urlArr[1].includes('#')) {
+      urlStr = '?' + urlArr[1].substring(0,urlArr[1].lastIndexOf('#'))
+    }
+  }
   paramsObj = ParseUrlFunction[opt.parseUrlType](urlStr)
 
   if (keyStr) {
@@ -61,14 +88,63 @@ function getUrlParams(key?:unknown,options?:unknown): IParamsType | string {
   return paramsObj
 }
 
-function converParamsToUrl(url:string,urlParams:object,hashValue:string):string {
-  // var params = []
-  // Object.entries(requestParams).forEach(([key, value]) => {
-  //   var param = key + '=' + value
-  //   params.push(param)
-  // })
-  // return '?' + params.join('&')
-  return ''
+function converParamsToUrl(urlParams:object):string
+function converParamsToUrl(urlParams:object,options?:IConverParamsConfig):string
+function converParamsToUrl(urlParams:object,options?:IConverParamsConfig):string {
+  if (arguments.length === 0) {
+    paramsNullError("converParamsToUrl方法的")
+  }
+  let urlStr:string = ''
+  let paramsArr:string[] = []
+  let opt:IConverParamsConfig = ConverParamsConfig
+
+  if (options) {
+    opt = {...opt,...options}
+  }
+
+  if (Object.prototype.toString.call(urlParams) === "[object Object]") {
+    Object.entries(urlParams).forEach(([key, value]) => {
+        let param = key + '=' + EncodeUrlType[opt.encodeUrlType](value) 
+        paramsArr.push(param)
+    })
+  } else {
+    console.warn('拼接ur的参数格式必须是一个对象类型的数据！')
+  }
+
+ 
+  if (opt.url.includes('?')) {
+    let urlArr:string[] = opt.url.split('?') 
+    console.log(urlArr)
+    if (urlArr[1].includes('#')) {
+      urlStr =urlArr[0] + '?' + urlArr[1].substring(0,urlArr[1].lastIndexOf('#'))
+      
+      if (!opt.hashValue.trim()) {
+        opt.hashValue = urlArr[1].substring(urlArr[1].lastIndexOf('#'))
+      }
+    }
+
+    if (paramsArr.length > 0) {
+      urlStr = opt.url + '&' + paramsArr.join('&') + opt.hashValue
+    } else {
+      urlStr = opt.url + opt.hashValue
+    }
+    
+  } else {
+    
+    if (opt.url.includes('#')) {
+      if (!opt.hashValue.trim()) {
+        opt.hashValue = opt.url.substring(opt.url.lastIndexOf('#'))
+      }
+      opt.url =opt.url.substring(0,opt.url.lastIndexOf("#"))    
+    }
+    if (paramsArr.length > 0) {
+      urlStr = opt.url + '?' + paramsArr.join('&') + opt.hashValue
+    } else {
+      urlStr = opt.url + opt.hashValue
+    }
+  }
+
+  return urlStr
 }
 
 export {getUrlParams,converParamsToUrl}

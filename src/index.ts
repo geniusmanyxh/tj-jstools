@@ -1,5 +1,3 @@
-// import * as tjType from './type_tool'
-// export default {tjType}
 import {
   isBoolean,
   isNumber,
@@ -9,14 +7,26 @@ import {
   isBigint,
 } from './type_tool/basic'
 import { isFloat, isInt, isFinite, isNaN, isInfinite } from './type_tool/numDel'
-import { isNull, isArray, isDate, isFunction, isObject } from './type_tool/objDel'
-import {getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail} from './type_tool/complexFun'
+import {
+  isNull,
+  isArray,
+  isDate,
+  isFunction,
+  isObject,
+} from './type_tool/objDel'
+import {
+  getType,
+  getArrayAllType,
+  getArrayTypeDetail,
+  getObjectAllType,
+  getObjectTypeDetail,
+} from './type_tool/complexFun'
 
-import { getUrlParams,converParamsToUrl } from './url_tool'
+import { getUrlParams, converParamsToUrl } from './url_tool'
 
 const tjUrl = {
   getUrlParams,
-  converParamsToUrl
+  converParamsToUrl,
 }
 
 const tjType = {
@@ -43,7 +53,8 @@ const tjType = {
   isObject,
 }
 
-export {getUrlParams,
+export {
+  getUrlParams,
   converParamsToUrl,
   getType,
   getArrayAllType,
@@ -65,6 +76,5 @@ export {getUrlParams,
   isArray,
   isDate,
   isFunction,
-  isObject,} 
-
-
+  isObject,
+}

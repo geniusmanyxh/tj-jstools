@@ -28,9 +28,11 @@ function siderbarGuide ():DefaultTheme.SidebarGroup[] {
 
 function siderbarFunction ():DefaultTheme.SidebarGroup[] {
   const baseUrl = {
-    type_tool: '/functions/typeTool/'
+    type_tool: '/functions/typeTool/',
+    url_tool: '/functions/urlTool/',
   }
   const joinTypeUrl = joinUrl(baseUrl.type_tool)
+  const joinURLUrl = joinUrl(baseUrl.url_tool)
   const rtnSider:DefaultTheme.SidebarGroup[] = [
     
     {
@@ -107,9 +109,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        { text: '函数列表概览', link: joinURLUrl() },
+        { text: 'getUrlParams',link:joinURLUrl('getUrlParams')},
+        { text: 'converParamsToUrl', link: joinURLUrl('converParamsToUrl')},
       ]
     },
     {
