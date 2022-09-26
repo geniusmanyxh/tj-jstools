@@ -34,7 +34,7 @@
 //   i: () => {}
 // },'number'))
 // tj.isBoolean()
-let url = `http://www.baidu.com?name=Jack&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#6`
+let url = `https://jstools.itbooks.work/functions?tool=urlTool&fun=getUrlParams#code`
 
 let urll = url.substring(url.lastIndexOf("#"))
 
@@ -51,7 +51,7 @@ const testUrlP = {
     // i: () => {}
   }
 const {converParamsToUrl,getUrlParams} = require('tj-jstools')
-// let rtn = getUrlParams({url})
+let rtn = getUrlParams('tool',{url,parseUrlType:'URLSearchParamsType'})
 
-// console.log(rtn)
+console.log(rtn)
 console.log(converParamsToUrl(testUrlP,{hashValue:'',url:'com#777'}))
