@@ -8,9 +8,9 @@ titleTemplate: getArrayTypeDetail
 **功能：** 判断数组的细粒度的数据类型，返回结果有以下这几种类型组成的一个数组详细结果：`string` 、 `bigint` 、 `boolean` 、 `symbol` 、 `undefined` 、 `object` 、 `function` 、 `array` 、 `object` 、 `date` 、 `null` 、 `int` 、 `float` 、 `infinite` 、 `NaN`。
 
 **返回数组：** `[{
-  index: 0 ;
-  value: 'hello';
-  type: 'string';
+  index: number | string ;
+  value: any;
+  type: returnTypeStr;
 }...]`
 
 **注意：** 这里返回的类型并没有：`number` | `finite`,因为`number`类型已经被细粒度的类型细化, 而`finite`则被`int`和`float`类型代替
@@ -59,7 +59,14 @@ declare function getArrayTypeDetail(params: any[], selectType?: returnTypeStr | 
 ```
 ::: tip
 特别注意该方法返回的类型里面没有：`number` | `finite`; <br/>
-该方法接收的必须是一个数组类型的参数，且参数不能为空！
+:::
+
+::: danger ERROR
+该方法的第一个参数是一个数组类型的参数,且不能为空,否则将抛出错误
+
+```js
+Uncaught Error: getXXXX方法的参数不能为空！
+```
 :::
 
 **第二个参数可以筛选返回的类型**

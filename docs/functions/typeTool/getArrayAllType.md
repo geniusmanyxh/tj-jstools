@@ -7,7 +7,7 @@ titleTemplate: getArrayAllType
 
 **功能：** 判断数组里面下标值对应的细粒度的数据类型，返回结果有以下这几种类型组成的一个数组：`string` 、 `bigint` 、 `boolean` 、 `symbol` 、 `undefined` 、 `object` 、 `function` 、 `array` 、 `object` 、 `date` 、 `null` 、 `int` 、 `float` 、 `infinite` 、 `NaN`。
 
-**返回数组：** `[string,null...]`
+**返回数组：** `string[] | Array<returnTypeStr>`
 
 **注意：** 这里返回的类型并没有：`number` | `finite`,因为`number`类型已经被细粒度的类型细化, 而`finite`则被`int`和`float`类型代替
 
@@ -37,5 +37,12 @@ declare function getArrayAllType(params: any[]): returnTypeStr[];
 ```
 ::: tip
 特别注意该方法返回的类型数组里面没有：`number` | `finite`;<br/>
-该方法接收的必须是一个数组类型的参数，且参数不能为空！
+:::
+
+::: danger ERROR
+该方法的参数是一个数组,且不能为空,否则将抛出错误
+
+```js
+Uncaught Error: getXXXX方法的参数不能为空！
+```
 :::

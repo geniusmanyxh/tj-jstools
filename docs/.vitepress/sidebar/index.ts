@@ -69,9 +69,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     },
     {
@@ -79,9 +79,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     },
     {
@@ -89,9 +89,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     },
     {
@@ -99,9 +99,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     },
     {
@@ -119,9 +119,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     },
     {
@@ -129,9 +129,9 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        { text: '函数列表概览', link: joinTypeUrl('index') },
-        { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        { text: 'isString', link: joinTypeUrl('isString')},
+        // { text: '函数列表概览', link: joinTypeUrl('index') },
+        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+        // { text: 'isString', link: joinTypeUrl('isString')},
       ]
     }
   ]

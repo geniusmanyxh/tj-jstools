@@ -76,7 +76,7 @@ URL示例（默认当前地址栏）：<br/> `https://jstools.itbooks.work/funct
   // urlTool
 ```
 
-::: details OPTIONS详解
+## 4-OPTIONS配置详解
 ```ts
 const config:IGetUrlParamsConfig = {
   url: globalThis?.location?.search, // url默认值
@@ -84,17 +84,16 @@ const config:IGetUrlParamsConfig = {
   decodeUrlType: "noneType" // 默认解码方式
 }
 ```
-**url**
+**【url】**
 - 默认值：包含一个 URL 标识中的 '?' 以及跟随其后的一串 URL 查询参数
 - 可以自定义配置该参数
 
-**parseUrlType** 解析参数的方式
-- splitType 传统的字符串切割，然后组合为对象
-- URLSearchParamsType 使用的是[URLSearchParams](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)实验性功能，存在兼容性
-- RegExpType 正则表达式方法，获取简单的参数形式，暂不支持复杂的参数形式如：`?obj={key:'value'}`
+**【parseUrlType】** 解析参数的方式
+- splitType： 传统的字符串切割，然后组合为对象
+- URLSearchParamsType： 使用的是[URLSearchParams](https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams)实验性功能，存在兼容性
+- RegExpType： 正则表达式方法，获取简单的参数形式，暂不支持复杂的参数形式如：`?obj={key:'value'}`
 
-**decodeUrlType** 解码参数的方式
-- noneType (str:string) => str; 默认不解码
-- decodeURIType 使用[decodeURI](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURI)方法解码
-- decodeURIComponentType 使用[decodeURIComponent](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent)方法解码
-:::
+**【decodeUrlType】** 解码参数的方式
+- noneType：  默认不解码
+- decodeURIType： 使用[decodeURI](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURI)方法解码
+- decodeURIComponentType： 使用[decodeURIComponent](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent)方法解码

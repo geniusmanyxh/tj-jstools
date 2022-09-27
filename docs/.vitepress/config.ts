@@ -42,7 +42,7 @@ export default defineConfig({
       copyright: 'Copyright © 2022-present 天界程序员'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'github', link: 'https://github.com/geniusmanyxh/tj-jstools' },
       // { icon: 'twitter', link: '...' },
       // You can also add custom icons by passing SVG as string:
       // {

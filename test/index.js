@@ -40,18 +40,12 @@ let urll = url.substring(url.lastIndexOf("#"))
 
 console.log(urll)
 const testUrlP = {
-    a: true,
-    b: null,
-    c: undefined,
-    d: 6,
-    e: 6.01,
-    f: 1/0,
-    g: {},
-    h: [].toString(),
-    // i: () => {}
+    tool: 'newUrltool',
+    name: 'tj',
+    city: '重庆'
   }
 const {converParamsToUrl,getUrlParams} = require('tj-jstools')
 let rtn = getUrlParams('tool',{url,parseUrlType:'URLSearchParamsType'})
 
 console.log(rtn)
-console.log(converParamsToUrl(testUrlP,{hashValue:'',url:'com#777'}))
+console.log(converParamsToUrl(testUrlP,{hashValue:'#address',url,encodeUrlType:'encodeURIComponent'}))

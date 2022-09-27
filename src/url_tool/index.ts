@@ -1,32 +1,31 @@
-import {paramsNullError} from '../common/paramUtils'
+import { paramsNullError } from '../common/paramUtils'
 interface IParamsType {
   [key: string]: string
 }
 
 type parseUrlType = 'splitType' | 'URLSearchParamsType' | 'RegExpType'
 type decodeUrlType = 'noneType' | 'decodeURIType' | 'decodeURIComponentType'
-type encodeUrlType = 'noneType' | 'encodeURI' | 'encodeURIComponent'
+type encodeUrlType = 'noneType' | 'encodeURIType' | 'encodeURIComponentType'
 interface IParseUrlFunction {
-  [key: string] : (url:string)=>IParamsType
+  [key: string]: (url: string) => IParamsType
 }
 
-
-const ParseUrlFunction:IParseUrlFunction = {
-  splitType:getUrlParamsOfSplit,
-  URLSearchParamsType:getUrlParamsOfURLSearchParams,
-  RegExpType:getUrlParamsOfRegExp
+const ParseUrlFunction: IParseUrlFunction = {
+  splitType: getUrlParamsOfSplit,
+  URLSearchParamsType: getUrlParamsOfURLSearchParams,
+  RegExpType: getUrlParamsOfRegExp,
 }
 
 const DecodeUrlType = {
-  noneType: (url:string) => url,
-  decodeURIType:decodeURI,
-  decodeURIComponentType:decodeURIComponent
+  noneType: (url: string) => url,
+  decodeURIType: decodeURI,
+  decodeURIComponentType: decodeURIComponent,
 }
 
 const EncodeUrlType = {
-  noneType: (url:string) => url,
-  encodeURIType:encodeURI,
-  encodeURIComponent:encodeURIComponent
+  noneType: (url: string) => url,
+  encodeURIType: encodeURI,
+  encodeURIComponent: encodeURIComponent,
 }
 
 interface IConverParamsConfig {
@@ -35,48 +34,54 @@ interface IConverParamsConfig {
   encodeUrlType: encodeUrlType
 }
 
-const ConverParamsConfig:IConverParamsConfig = {
+const ConverParamsConfig: IConverParamsConfig = {
   url: globalThis?.location?.href,
   hashValue: '',
-  encodeUrlType: 'noneType'
+  encodeUrlType: 'noneType',
 }
 
 interface IGetUrlParamsConfig {
   url: string
-  parseUrlType:parseUrlType
-  decodeUrlType:decodeUrlType
+  parseUrlType: parseUrlType
+  decodeUrlType: decodeUrlType
 }
-const config:IGetUrlParamsConfig = {
+const config: IGetUrlParamsConfig = {
   url: globalThis?.location?.search,
-  parseUrlType: "splitType",
-  decodeUrlType: "noneType"
+  parseUrlType: 'splitType',
+  decodeUrlType: 'noneType',
 }
-function getUrlParams():IParamsType
-function getUrlParams(key?:string):string
-function getUrlParams(options?:IGetUrlParamsConfig):IParamsType
-function getUrlParams(key?:string,options?:IGetUrlParamsConfig): IParamsType | string
+function getUrlParams(): IParamsType
+function getUrlParams(key?: string): string
+function getUrlParams(options?: IGetUrlParamsConfig): IParamsType
+function getUrlParams(
+  key?: string,
+  options?: IGetUrlParamsConfig
+): IParamsType | string
 
-function getUrlParams(key?:unknown,options?:IGetUrlParamsConfig): IParamsType | string {
+function getUrlParams(
+  key?: unknown,
+  options?: IGetUrlParamsConfig
+): IParamsType | string {
   let paramsObj = {}
   let opt: IGetUrlParamsConfig = config
   let keyStr: string = ''
   let urlStr: string = ''
 
-  if (typeof arguments[0] === "string") {
+  if (typeof arguments[0] === 'string') {
     keyStr = arguments[0]
-  } else if (typeof arguments[0] === "object") {
-    opt = {...config,...arguments[0]}
+  } else if (typeof arguments[0] === 'object') {
+    opt = { ...config, ...arguments[0] }
   }
-  
-  if (typeof arguments[1] === "object") {
-    opt = {...config,...arguments[1]}
+
+  if (typeof arguments[1] === 'object') {
+    opt = { ...config, ...arguments[1] }
   }
   urlStr = DecodeUrlType[opt.decodeUrlType](opt.url)
 
   if (urlStr.includes('?')) {
-    let urlArr:string[] = urlStr.split('?') 
+    let urlArr: string[] = urlStr.split('?')
     if (urlArr[1].includes('#')) {
-      urlStr = '?' + urlArr[1].substring(0,urlArr[1].lastIndexOf('#'))
+      urlStr = '?' + urlArr[1].substring(0, urlArr[1].lastIndexOf('#'))
     }
   }
   paramsObj = ParseUrlFunction[opt.parseUrlType](urlStr)
@@ -88,54 +93,67 @@ function getUrlParams(key?:unknown,options?:IGetUrlParamsConfig): IParamsType | 
   return paramsObj
 }
 
-function converParamsToUrl(urlParams:object):string
-function converParamsToUrl(urlParams:object,options?:IConverParamsConfig):string
-function converParamsToUrl(urlParams:object,options?:IConverParamsConfig):string {
+function converParamsToUrl(urlParams: object): string
+function converParamsToUrl(
+  urlParams: object,
+  options?: IConverParamsConfig
+): string
+
+function converParamsToUrl(
+  urlParams: object,
+  options?: IConverParamsConfig
+): string {
   if (arguments.length === 0) {
-    paramsNullError("converParamsToUrl方法的")
+    paramsNullError('converParamsToUrl方法的')
   }
-  let urlStr:string = ''
-  let paramsArr:string[] = []
-  let opt:IConverParamsConfig = ConverParamsConfig
+  let urlStr: string = ''
+  let paramsArr: string[] = []
+  let opt: IConverParamsConfig = ConverParamsConfig
 
   if (options) {
-    opt = {...opt,...options}
+    opt = { ...opt, ...options }
   }
 
-  if (Object.prototype.toString.call(urlParams) === "[object Object]") {
+  if (Object.prototype.toString.call(urlParams) === '[object Object]') {
     Object.entries(urlParams).forEach(([key, value]) => {
-        let param = key + '=' + EncodeUrlType[opt.encodeUrlType](value) 
-        paramsArr.push(param)
+      let param = key + '=' + EncodeUrlType[opt.encodeUrlType](value)
+      paramsArr.push(param)
     })
   } else {
     console.warn('拼接ur的参数格式必须是一个对象类型的数据！')
   }
 
- 
   if (opt.url.includes('?')) {
-    let urlArr:string[] = opt.url.split('?') 
+    let urlArr: string[] = opt.url.split('?')
     console.log(urlArr)
     if (urlArr[1].includes('#')) {
-      urlStr =urlArr[0] + '?' + urlArr[1].substring(0,urlArr[1].lastIndexOf('#'))
-      
+      urlStr =
+        urlArr[0] + '?' + urlArr[1].substring(0, urlArr[1].lastIndexOf('#'))
+
       if (!opt.hashValue.trim()) {
         opt.hashValue = urlArr[1].substring(urlArr[1].lastIndexOf('#'))
       }
     }
-
     if (paramsArr.length > 0) {
-      urlStr = opt.url + '&' + paramsArr.join('&') + opt.hashValue
+      const oldParamsObj: IParamsType = getUrlParamsOfSplit(urlStr)
+      const newParamsObj: IParamsType = { ...oldParamsObj, ...urlParams }
+      const newParamsArr: string[] = []
+
+      Object.entries(newParamsObj).forEach(([key, value]) => {
+        let param = key + '=' + EncodeUrlType[opt.encodeUrlType](value)
+        newParamsArr.push(param)
+      })
+      console.log(newParamsArr)
+      urlStr = urlArr[0] + '?' + newParamsArr.join('&') + opt.hashValue
     } else {
       urlStr = opt.url + opt.hashValue
     }
-    
   } else {
-    
     if (opt.url.includes('#')) {
       if (!opt.hashValue.trim()) {
         opt.hashValue = opt.url.substring(opt.url.lastIndexOf('#'))
       }
-      opt.url =opt.url.substring(0,opt.url.lastIndexOf("#"))    
+      opt.url = opt.url.substring(0, opt.url.lastIndexOf('#'))
     }
     if (paramsArr.length > 0) {
       urlStr = opt.url + '?' + paramsArr.join('&') + opt.hashValue
@@ -147,10 +165,7 @@ function converParamsToUrl(urlParams:object,options?:IConverParamsConfig):string
   return urlStr
 }
 
-export {getUrlParams,converParamsToUrl}
-
-
-
+export { getUrlParams, converParamsToUrl }
 
 function getUrlParamsOfSplit(url: string): IParamsType {
   // 通过 ? 分割获取后面的参数字符串

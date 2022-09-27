@@ -3,26 +3,26 @@ layout: home
 
 hero:
   name: TJ-JSTOOLS
-  text: javaScript & Node utility library.
-  tagline: Simple, powerful, and performant.
+  text: javaScript工具库.
+  tagline: 方便、有效、易用.
   image:
     src: /tian.png
     alt: jstools
   actions:
     - theme: brand
-      text: Get Started
+      text: 查阅文档
       link: /guide/
     - theme: alt
-      text: View on GitHub
+      text: GitHub源码地址
       link: https://github.com/geniusmanyxh/tj-jstools
 features:
   - icon: ⚡️
-    title: Vite, The DX that can't be beat
-    details: Lorem ipsum...
-  - icon: 🖖
-    title: Power of Vue meets Markdown
-    details: Lorem ipsum...
+    title: 方便
+    details: 将常用的函数集成到一个库，开箱即用
   - icon: 🛠️
-    title: Simple and minimal, always
-    details: Lorem ipsum...
+    title: 效率
+    details: 大部分都是纯函数，功能单一，供使用者随意组合
+  - icon: 🖖
+    title: 易用
+    details: 配备文档说明，傻瓜式操作
 ---
