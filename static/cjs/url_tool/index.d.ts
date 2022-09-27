@@ -3,7 +3,7 @@ interface IParamsType {
 }
 declare type parseUrlType = 'splitType' | 'URLSearchParamsType' | 'RegExpType';
 declare type decodeUrlType = 'noneType' | 'decodeURIType' | 'decodeURIComponentType';
-declare type encodeUrlType = 'noneType' | 'encodeURI' | 'encodeURIComponent';
+declare type encodeUrlType = 'noneType' | 'encodeURIType' | 'encodeURIComponentType';
 interface IConverParamsConfig {
     url: string;
     hashValue: string;
