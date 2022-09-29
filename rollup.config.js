@@ -2,6 +2,7 @@
 const { terser } = require('rollup-plugin-terser')
 const commonjs = require('@rollup/plugin-commonjs')
 const typescript = require('rollup-plugin-typescript2')
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 // const babel = require('@rollup/plugin-babel') // 导入babel
 import babel from '@rollup/plugin-babel'; 
 
@@ -19,23 +20,35 @@ module.exports = {
   //   sourcemap: true,
   //   exports: 'default',
   // },
+  // external: [ 'Cookies' ],
   output: [
     {
       file: 'static/cjs/index.js', // 打包成commonjs
       format: 'cjs',
       sourcemap: true,
+      // globals: {
+      //   'Cookies': 'Cookies'
+      // },
+      // external: ['Cookies']
       // exports: 'default',
     },
     {
       file: 'static/esm/index.js', // 打包成esmodule
       format: 'esm',
       sourcemap: true,
+      // globals: {
+      //   'Cookies': 'Cookies'
+      // },
+      // external: ['Cookies']
       // exports: 'default',
     },
     {
       file: 'static/umd/index.js',
       format: 'umd',
       sourcemap: true,
+      // globals: {
+      //   'Cookies': 'Cookies'
+      // },
       // exports: 'default',
       name: '_tj' // umd 规范，一定要有一个名字，不然打包报错
     },
@@ -44,6 +57,7 @@ module.exports = {
   // 注意，这里的插件使用是有顺序的，先把ts编译为js，然后查找依赖，最后压缩
   plugins: [
     typescript({ tsconfig: './tsconfig.json', tsconfigOverride: override }),
+    nodeResolve(),
     babel({
       exclude: 'node_modules/**', // 防止打包node_modules下的文件
       babelHelpers: 'runtime',      // 使plugin-transform-runtime生效

@@ -44,8 +44,10 @@ const testUrlP = {
     name: 'tj',
     city: '重庆'
   }
-const {converParamsToUrl,getUrlParams} = require('tj-jstools')
-let rtn = getUrlParams('tool',{url,parseUrlType:'URLSearchParamsType'})
+const {converParamsToUrl,getUrlParams,getType} = require('tj-jstools')
+let key;
+console.log(getType(key))
+// let rtn = getUrlParams('tool',{url,parseUrlType:'URLSearchParamsType'})
 
-console.log(rtn)
-console.log(converParamsToUrl(testUrlP,{hashValue:'#address',url,encodeUrlType:'encodeURIComponent'}))
+// console.log(rtn)
+// console.log(converParamsToUrl(testUrlP,{hashValue:'#address',url,encodeUrlType:'encodeURIComponent'}))
