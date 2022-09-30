@@ -6,17 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
  <script src="../static/umd/index.js"></script>
+ <!-- <script src="../static/umd/index.d.ts"></script> -->
 </head>
 <body>
   <script>
-    let url = `http://www.baidu.com?name=Jack#9&age=${JSON.stringify({l:'a'})}&sex=men&wife=Lucy&p=${encodeURI('中国')}#9`
-    // this._tj.isBoolean()
-    const {converParamsToUrl} = this._tj
-    const testUrlParams = {
-    tool: 'newUrltool',
-    name: 'tj'
-  }
-    console.log(converParamsToUrl(testUrlParams))
+    console.log(this._tj)
+    const tCookie = this._tj.newStorage('cookie',{prefix:'ddd',expireTime:1000,unitTime:'h'})
+    console.log(tCookie)
+    tCookie.setFun('key55','6666')
+    console.log(tCookie.getFun('key55'))
   </script>
 </body>
 </html>

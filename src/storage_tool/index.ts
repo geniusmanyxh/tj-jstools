@@ -74,7 +74,13 @@ const FormatUnitTime: IFormatUnitTime = {
   m: 30 * 864e5,
   y: 365 * 864e5,
 }
-
+const OptionsCookieProp = [
+  'expires',
+  'path',
+  'domain',
+  'secure',
+  'sameSite',
+]
 const OptionsDefaultProp = [
   'prefix',
   'suffix',
@@ -98,18 +104,11 @@ class ComStorage implements IComStorageFun {
   private expireTime: number = -1
   private unitTime: UnitTimeType = 'ms'
 
-  private expires: number | Date | undefined
-  private path: string | undefined
+  private expires: number | Date| undefined
+  private path: string |undefined = '/'
   private domain: string | undefined
-  private secure: boolean | undefined
-  private sameSite:
-    | 'strict'
-    | 'Strict'
-    | 'lax'
-    | 'Lax'
-    | 'none'
-    | 'None'
-    | undefined
+  private secure: boolean | undefined = false
+  private sameSite:'strict'| 'Strict'|'lax'| 'Lax'| 'none'| 'None'| undefined = 'Lax'
 
   constructor(
     type: StorageType,
@@ -158,18 +157,26 @@ class ComStorage implements IComStorageFun {
     key = jointKey(jointKeyParams)
 
     const dataExpTime =
-      (Config.expireTime as number) * FormatUnitTime[Config.unitTime as string]
-
+      (Config.expireTime as number) * FormatUnitTime[Config.unitTime as string] +  new Date().getTime()
+    
+    console.log('time',dataExpTime)
     if (!isString(value)) {
       value = JSON.stringify(value)
     }
     if (this.instanceType === 'cookie') {
       if (dataExpTime > 0) {
-        ;(Config as IComCookieBasicProp).expires = dataExpTime
+        ;(Config as IComCookieBasicProp).expires = new Date(dataExpTime)
       }
-
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      Instance.set(key, value, Config as IComCookieBasicProp)
+      let cookieOpt = {}
+      OptionsCookieProp.forEach((key) => {
+        if (!isUndefined(Config[key])) {
+          cookieOpt[key] = Config[key]
+        }
+      })
+      console.log(cookieOpt)
+      Cookies.set(key, value,cookieOpt)
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      // Instance.set(key, value,cookieOpt)
     } else {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
@@ -210,8 +217,9 @@ class ComStorage implements IComStorageFun {
     let rtnData: any = undefined
 
     if (this.instanceType === 'cookie') {
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      const getCookieData = Instance.get(key)
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      // const getCookieData = Instance.get(key)
+      const getCookieData = Cookies.get(key)
       if (isString(getCookieData)) {
         if (isJson(getCookieData)) {
           rtnData = JSON.parse(getCookieData as string)
@@ -277,8 +285,20 @@ class ComStorage implements IComStorageFun {
     key = jointKey(jointKeyParams)
 
     if (this.instanceType === 'cookie') {
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      Instance.remove(key, Config)
+
+      let cookieOpt = {}
+      OptionsCookieProp.forEach((key) => {
+        if (!isUndefined(Config[key])) {
+          cookieOpt[key] = Config[key]
+        }
+      })
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      if (Object.keys(cookieOpt).length === 0) {
+        Cookies.remove(key)
+      } else {
+        Cookies.remove(key, cookieOpt)
+      }
+      
     } else {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
@@ -306,8 +326,8 @@ class ComStorage implements IComStorageFun {
     const resArr: string[] = [] // 返回有效的keys数组
     // 判断缓存类型
     if (this.instanceType === 'cookie') {
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      const keys = Object.keys(Instance.get())
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      const keys = Object.keys(Cookies.get())
       getKeys.push(...keys)
     } else {
       const Instance = StorageTypeInstance[
@@ -379,8 +399,8 @@ class ComStorage implements IComStorageFun {
 
     let InsGet: Function
     if (this.instanceType === 'cookie') {
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      InsGet = Instance.get
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      InsGet = Cookies.get
     } else {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
@@ -412,14 +432,25 @@ class ComStorage implements IComStorageFun {
     let resArr: string[] = []
 
     if (this.instanceType === 'cookie') {
-      const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
+      let cookieOpt = {}
+        
       if (options) {
         resArr = [...this.allKey(options)]
+        OptionsCookieProp.forEach((key) => {
+          if (!isUndefined(options[key])) {
+            cookieOpt[key] = options[key]
+          }
+        })
       } else {
         resArr = [...this.allKey()]
       }
-      if (resArr.length > 0) {
-        resArr.forEach((val) => Instance.remove(val, options))
+      if (resArr.length > 0) { 
+        if (Object.keys(cookieOpt).length === 0) {
+          resArr.forEach((val) => Cookies.remove(val))
+        } else {
+          resArr.forEach((val) => Cookies.remove(val, cookieOpt))
+        }
       }
     } else {
       const Instance = StorageTypeInstance[
@@ -476,9 +507,9 @@ function getValidValue(val: unknown): boolean {
   return rtnData
 }
 
-function tjStorage(type: StorageType, options?: IComStorageSetProp) {
+function newStorage(type: StorageType, options?: IComStorageSetProp) {
 
   return new ComStorage(type,options)
 }
 
-export {tjStorage}
+export {newStorage}

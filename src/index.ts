@@ -24,11 +24,11 @@ import {
 } from './type_tool/complexFun'
 
 import { getUrlParams, converParamsToUrl } from './url_tool'
-import { tjStorage } from './storage_tool'
+import { newStorage } from './storage_tool'
 import {charInCounts} from './str_tool'
 export {
   charInCounts,
-  tjStorage,
+  newStorage,
   getUrlParams,
   converParamsToUrl,
   getType,

@@ -45,5 +45,5 @@ declare class ComStorage implements IComStorageFun {
     allKey(options?: IComStorageBasicProp | undefined): string[];
     clearFun(options?: IComStorageBasicProp | IComCookieBasicProp | undefined): void;
 }
-declare function tjStorage(type: StorageType, options?: IComStorageSetProp): ComStorage;
-export { tjStorage };
+declare function newStorage(type: StorageType, options?: IComStorageSetProp): ComStorage;
+export { newStorage };
