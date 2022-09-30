@@ -21,7 +21,14 @@
   "keywords": [
     "js",
     "tool",
-    "utils"
+    "utils",
+    "string",
+    "array",
+    "object",
+    "number",
+    "storage",
+    "cookie",
+    "browser"
   ],
   "repository": {
     "type": "git",

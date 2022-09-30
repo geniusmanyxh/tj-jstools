@@ -78,7 +78,7 @@ declare function newStorage(type: StorageType, options?: IComCookieBasicProp): C
 ```
 :::
 
-## 使用示例
+## 3-使用示例
 ```ts
 import {newStorage} from 'tj-jstools'
 const Coptions = {
@@ -104,16 +104,18 @@ CInstance.setFun('newTest','testValue',
 以上案例，在setFun方法里面配置了options参数，它会覆盖初始化的配置，所以这里是设置了一个
 key为`tj@newTest@com`,值为`'testValue'`,过期时间为10个小时的cookie值。
 
-## 配置参数options详解
+## 4-配置参数options详解
 
-### **公共配置**：这里指localStorage、sessionStorage、cookie实例共有的配置属性
+### 公共配置：
+**这里指localStorage、sessionStorage、cookie实例共有的配置属性**
 - prefix：默认值：`''`, key值的前缀
 - linkSign：默认值：`.`,前缀后缀与key值的连接符号
 - suffix：默认值：`''`,key值的后缀
 - expireTime:默认值：-1, 如果需要一个有效的过期时间，请设置一个大于0的int型数值
 - UnitTime:默认值：`ms`,可选：`'ms(毫秒)'、's(秒)'、'min(分)'、'h(时)'、'd(天)'、'w(周=7天)'、'm(月=30天)'、'y(年=365天)'`
 
-### **Cookie配置**：这里指cookie独有的配置，对localStorage、sessionStorage无效
+### Cookie配置：
+**这里指cookie独有的配置，对localStorage、sessionStorage无效**
 - expires：默认值：`undefined`,如果没有定义，cookie 会在对话结束时过期,
 - path: 默认值：`/`,
 - domain：默认值：`undefined`,(例如 'example.com'， 'subdomain.example.com') 如果没有定义，默认为当前文档位置的路径的域名部分,

@@ -161,7 +161,8 @@ class ComStorage implements IComStorageFun {
     
     console.log('time',dataExpTime)
     if (!isString(value)) {
-      value = JSON.stringify(value)
+
+      value = value ? JSON.stringify(value):'undefined'
     }
     if (this.instanceType === 'cookie') {
       if (dataExpTime > 0) {
