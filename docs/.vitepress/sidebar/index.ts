@@ -30,9 +30,11 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
   const baseUrl = {
     type_tool: '/functions/typeTool/',
     url_tool: '/functions/urlTool/',
+    storage_tool: '/functions/storageTool/'
   }
   const joinTypeUrl = joinUrl(baseUrl.type_tool)
   const joinURLUrl = joinUrl(baseUrl.url_tool)
+  const joinStorageUrl = joinUrl(baseUrl.storage_tool)
   const rtnSider:DefaultTheme.SidebarGroup[] = [
     
     {
@@ -125,13 +127,18 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       ]
     },
     {
-      text: '浏览器存储篇',
+      text: '浏览器缓存篇',
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
+        { text: '函数列表概览', link: joinStorageUrl() },
+        { text: 'newStorage',link:joinStorageUrl('newStorage')},
+        { text: 'setFun',link:joinStorageUrl('setFun')},
+        { text: 'getFun',link:joinStorageUrl('getFun')},
+        { text: 'delFun',link:joinStorageUrl('delFun')},
+        { text: 'existFun',link:joinStorageUrl('existFun')},
+        { text: 'allKey',link:joinStorageUrl('allKey')},
+        { text: 'clearFun',link:joinStorageUrl('clearFun')},
       ]
     }
   ]

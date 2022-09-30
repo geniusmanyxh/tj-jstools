@@ -173,7 +173,7 @@ class ComStorage implements IComStorageFun {
           cookieOpt[key] = Config[key]
         }
       })
-      console.log(cookieOpt)
+      // console.log(cookieOpt)
       Cookies.set(key, value,cookieOpt)
       // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
       // Instance.set(key, value,cookieOpt)
@@ -231,13 +231,11 @@ class ComStorage implements IComStorageFun {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
       ] as Storage
-      let tempData = Instance.getItem(key)
+      let tempData =decodeURIComponent(Instance.getItem(key) as string) 
       if (isString(tempData)) {
         if (isJson(tempData)) {
           let nowTime = Date.now()
-          const getStorageData = JSON.parse(
-            decodeURIComponent(tempData as string)
-          )
+          const getStorageData = JSON.parse(tempData)
           if (
             getStorageData &&
             getStorageData._tj_expireTime &&
@@ -249,9 +247,11 @@ class ComStorage implements IComStorageFun {
               rtnData = getStorageData._tj_value
             }
           }
+        } else {
+          // 只是一个字符串
+          rtnData = tempData
         }
-        // 只是一个字符串
-        rtnData = decodeURIComponent(tempData as string)
+        
       }
     }
 
@@ -400,12 +400,12 @@ class ComStorage implements IComStorageFun {
     let InsGet: Function
     if (this.instanceType === 'cookie') {
       // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
-      InsGet = Cookies.get
+      InsGet = (key:string) => Cookies.get(key)
     } else {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
       ] as Storage
-      InsGet = Instance.getItem
+      InsGet = (key:string) => Instance.getItem(key)
     }
 
     if (keyArr.length > 0) {
@@ -413,6 +413,7 @@ class ComStorage implements IComStorageFun {
       for (let i = 0; i < keyArr.length; i++) {
         let val = keyArr[i]
         // 判断缓存值的过期时间是否已经过期
+
         let isTrue = !getValidValue(InsGet(val))
         if (isTrue) {
           // 如果过期，则继续遍历下一个
@@ -507,7 +508,7 @@ function getValidValue(val: unknown): boolean {
   return rtnData
 }
 
-function newStorage(type: StorageType, options?: IComStorageSetProp) {
+function newStorage(type: StorageType, options?: IComCookieBasicProp) {
 
   return new ComStorage(type,options)
 }

@@ -11,10 +11,22 @@
 <body>
   <script>
     console.log(this._tj)
-    const tCookie = this._tj.newStorage('cookie',{prefix:'ddd',expireTime:1000,unitTime:'h'})
+    const tCookie = this._tj.newStorage('local',{prefix:'ddd',expireTime:1000,unitTime:'ms'})
     console.log(tCookie)
-    tCookie.setFun('key55','6666')
-    console.log(tCookie.getFun('key55'))
+    tCookie.setFun('key55',{a:'6666'})
+    console.log(tCookie.existFun('key55'))
+    setTimeout(() => {
+      let a = tCookie.getFun('key55')
+      console.log(a,typeof a)
+    }, 500);
+    setTimeout(()=>{
+      console.log(tCookie.existFun('key55'))
+    },1001)
+    console.log(tCookie.getFun('555',{prefix:''}))
+
+    console.log(tCookie.allKey())
+    console.log(tCookie.clearFun())
+    console.log(tCookie.allKey())
   </script>
 </body>
 </html>
