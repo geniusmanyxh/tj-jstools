@@ -12,6 +12,7 @@ export default defineConfig({
     theme: 'material-palenight',
     lineNumbers: true
   },
+  // base:'./',
 
 
   themeConfig:{

@@ -1,3 +1,4 @@
+// -------------- type_tool--------------
 import {
   isBoolean,
   isNumber,
@@ -5,7 +6,7 @@ import {
   isSymbol,
   isUndefined,
   isBigint,
-  isJson
+  isJson,
 } from './type_tool/basic'
 import { isFloat, isInt, isFinite, isNaN, isInfinite } from './type_tool/numDel'
 import {
@@ -23,14 +24,7 @@ import {
   getObjectTypeDetail,
 } from './type_tool/complexFun'
 
-import { getUrlParams, converParamsToUrl } from './url_tool'
-import { newStorage } from './storage_tool'
-import {charInCounts} from './str_tool'
 export {
-  charInCounts,
-  newStorage,
-  getUrlParams,
-  converParamsToUrl,
   getType,
   getArrayAllType,
   getArrayTypeDetail,
@@ -52,5 +46,30 @@ export {
   isArray,
   isDate,
   isFunction,
-  isObject,
+  isObject
 }
+
+// -------------- url_tool--------------
+import { getUrlParams, converParamsToUrl } from './url_tool'
+
+export { getUrlParams, converParamsToUrl }
+
+
+// -------------- storage_tool--------------
+import { newStorage } from './storage_tool'
+
+export { newStorage }
+
+
+// -------------- str_tool--------------
+import { charInCounts } from './str_tool/simpleStrFun'
+import { DTMoblie } from './str_tool/DTMoblie'
+
+export { charInCounts, DTMoblie }
+
+
+
+// -------------- browser_tool--------------
+import { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull } from './browser_tool/screen'
+
+export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull }

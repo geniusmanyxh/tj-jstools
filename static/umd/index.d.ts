@@ -2,7 +2,13 @@ import { isBoolean, isNumber, isString, isSymbol, isUndefined, isBigint, isJson 
 import { isFloat, isInt, isFinite, isNaN, isInfinite } from './type_tool/numDel';
 import { isNull, isArray, isDate, isFunction, isObject } from './type_tool/objDel';
 import { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail } from './type_tool/complexFun';
+export { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail, isBoolean, isNumber, isString, isSymbol, isUndefined, isBigint, isJson, isInt, isFloat, isNaN, isFinite, isInfinite, isNull, isArray, isDate, isFunction, isObject };
 import { getUrlParams, converParamsToUrl } from './url_tool';
+export { getUrlParams, converParamsToUrl };
 import { newStorage } from './storage_tool';
-import { charInCounts } from './str_tool';
-export { charInCounts, newStorage, getUrlParams, converParamsToUrl, getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail, isBoolean, isNumber, isString, isSymbol, isUndefined, isBigint, isJson, isInt, isFloat, isNaN, isFinite, isInfinite, isNull, isArray, isDate, isFunction, isObject, };
+export { newStorage };
+import { charInCounts } from './str_tool/simpleStrFun';
+import { DTMoblie } from './str_tool/DTMoblie';
+export { charInCounts, DTMoblie };
+import { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull } from './browser_tool/screen';
+export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull };
