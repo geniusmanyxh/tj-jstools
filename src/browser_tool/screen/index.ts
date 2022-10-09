@@ -139,6 +139,6 @@ const toggleFull = (
   options: FullscreenOptions = {
     navigationUI: 'auto',
   }
-) => (isFull() ? openFull(el, options) : closeFull())
+) => (isFull() ? closeFull() : openFull(el, options))
 
 export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull }
