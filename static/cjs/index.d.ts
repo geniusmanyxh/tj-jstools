@@ -12,3 +12,5 @@ import { DTMoblie } from './str_tool/DTMoblie';
 export { charInCounts, DTMoblie };
 import { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull } from './browser_tool/screen';
 export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull };
+import { toTreeData, treeToFlat, findTreeData } from './arr_tool/TreeData';
+export { toTreeData, treeToFlat, findTreeData };
