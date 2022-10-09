@@ -63,9 +63,9 @@ export { newStorage }
 
 // -------------- str_tool--------------
 import { charInCounts } from './str_tool/simpleStrFun'
-import { DTMoblie } from './str_tool/DTMoblie'
+import { DTMobile } from './str_tool/DTMoblie'
 
-export { charInCounts, DTMoblie }
+export { charInCounts, DTMobile }
 
 
 

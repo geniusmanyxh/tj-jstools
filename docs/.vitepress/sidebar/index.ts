@@ -30,11 +30,17 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
   const baseUrl = {
     type_tool: '/functions/typeTool/',
     url_tool: '/functions/urlTool/',
-    storage_tool: '/functions/storageTool/'
+    storage_tool: '/functions/storageTool/',
+    browser_tool: '/functions/browserTool/',
+    string_tool: '/functions/stringTool/',
+    array_tool:'/functions/arrayTool/'
   }
   const joinTypeUrl = joinUrl(baseUrl.type_tool)
   const joinURLUrl = joinUrl(baseUrl.url_tool)
   const joinStorageUrl = joinUrl(baseUrl.storage_tool)
+  const joinBrowserUrl = joinUrl(baseUrl.browser_tool)
+  const joinStringTool = joinUrl(baseUrl.string_tool)
+  const joinArrayTool = joinUrl(baseUrl.array_tool)
   const rtnSider:DefaultTheme.SidebarGroup[] = [
     
     {
@@ -71,41 +77,43 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
+        { text: '函数列表概览', link: joinStringTool() },
+        { text: 'charInCounts',link:joinStringTool('charInCounts')},
+        { text: 'DTMobile', link: joinStringTool('DTMobile')},
       ]
     },
-    {
-      text: '数值篇',
-      collapsible: true, // 开启可折叠侧边栏
-      collapsed: true, // 初始加载页面时关闭
-      items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
-      ]
-    },
+    // {
+    //   text: '数值篇',
+    //   collapsible: true, // 开启可折叠侧边栏
+    //   collapsed: true, // 初始加载页面时关闭
+    //   items: [
+    //     { text: '函数列表概览', link: joinArrayTool() },
+    //     { text: 'toTreeData',link:joinArrayTool('toTreeData')},
+    //     { text: 'treeToFlat', link: joinArrayTool('treeToFlat')},
+    //     { text: 'findTreeData', link: joinArrayTool('findTreeData')},
+    //   ]
+    // },
     {
       text: '数组篇',
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
+        { text: '函数列表概览', link: joinArrayTool() },
+        { text: 'toTreeData',link:joinArrayTool('toTreeData')},
+        { text: 'treeToFlat', link: joinArrayTool('treeToFlat')},
+        { text: 'findTreeData', link: joinArrayTool('findTreeData')},
       ]
     },
-    {
-      text: '对象篇',
-      collapsible: true, // 开启可折叠侧边栏
-      collapsed: true, // 初始加载页面时关闭
-      items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
-      ]
-    },
+    // {
+    //   text: '对象篇',
+    //   collapsible: true, // 开启可折叠侧边栏
+    //   collapsed: true, // 初始加载页面时关闭
+    //   items: [
+    //     { text: '函数列表概览', link: joinTypeUrl('index') },
+    //     { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
+    //     { text: 'isString', link: joinTypeUrl('isString')},
+    //   ]
+    // },
     {
       text: 'URL篇',
       collapsible: true, // 开启可折叠侧边栏
@@ -121,9 +129,13 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       collapsible: true, // 开启可折叠侧边栏
       collapsed: true, // 初始加载页面时关闭
       items: [
-        // { text: '函数列表概览', link: joinTypeUrl('index') },
-        // { text: 'isBoolean',link:joinTypeUrl('isBoolean')},
-        // { text: 'isString', link: joinTypeUrl('isString')},
+        { text: '函数列表概览', link: joinBrowserUrl() },
+        { text: 'isFull',link:joinBrowserUrl('isFull')},
+        { text: 'isFullEnabled', link: joinBrowserUrl('isFullEnabled')},
+        { text: 'getFullEl', link: joinBrowserUrl('getFullEl')},
+        { text: 'openFull', link: joinBrowserUrl('openFull')},
+        { text: 'closeFull', link: joinBrowserUrl('closeFull')},
+        { text: 'toggleFull', link: joinBrowserUrl('toggleFull')},
       ]
     },
     {

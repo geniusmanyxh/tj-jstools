@@ -5,7 +5,7 @@ import {REP_MOBILE} from '../../common/RegExpMap'
  * @param [strng] mobile 
  * @returns[string] 返回处理后的手机号
  */
-const DTMoblie = (mobile:string):string => {
+const DTMobile = (mobile:string):string => {
   let rtnStr:string = ''
   if (typeof mobile === "string") {
     if (REP_MOBILE.test(mobile)) {
@@ -19,4 +19,4 @@ const DTMoblie = (mobile:string):string => {
   return rtnStr
 }
 
-export {DTMoblie}
+export {DTMobile}
