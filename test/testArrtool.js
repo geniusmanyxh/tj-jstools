@@ -42,7 +42,7 @@ const testArr = [
 
 const treeData = toTreeData(testArr)
 const flatTree = treeToFlat(treeData)
-const findTree = findTreeData(testArr,{value:'九龙坡'})
+const findTree = findTreeData(testArr,{"pid": "1"})
 console.log(JSON.stringify(flatTree))
 console.log(JSON.stringify(treeData))
 console.log(JSON.stringify(findTree))
