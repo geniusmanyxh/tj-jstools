@@ -85,6 +85,11 @@ type FunType = {
   fullscreenchange: FSC
   fullscreenerror: FCE
 }
+const isNode = typeof window === 'undefined'
+let _DOC = {}
+if (!isNode) {
+  _DOC = document
+}
 
 const defaultFunMap: FunctionMap = FunMap[0]
 let FunAPI: FunType = {
@@ -96,9 +101,10 @@ let FunAPI: FunType = {
   fullscreenerror: 'fullscreenerror',
 }
 
+
 for (const fmap of FunMap) {
-  if (fmap[1] in document) {
-    for (const [idx, fun] of FunMap.entries()) {
+  if (fmap[1] in _DOC) {
+    for (const [idx, fun] of fmap.entries()) {
       FunAPI[defaultFunMap[idx]] = fun
     }
   }
@@ -114,28 +120,30 @@ const eventNameMap: FullEvent = {
   error: FunAPI.fullscreenerror,
 }
 
-const isFull = (): boolean => Boolean(document[FunAPI.fullscreenElement])
+
+const isFull = (): boolean => Boolean(_DOC[FunAPI.fullscreenElement])
 
 const getFullEl = (): Element | undefined =>
-  document[FunAPI.fullscreenElement] ?? undefined
+  _DOC[FunAPI.fullscreenElement] ?? undefined
 
-const isFullEnabled = (): boolean => Boolean(document[FunAPI.fullscreenEnabled])
+const isFullEnabled = (): boolean => Boolean(_DOC[FunAPI.fullscreenEnabled])
 
 const openFull = (
-  el: Element = document.documentElement,
+  el: Element = (_DOC as Document).documentElement,
   options: FullscreenOptions = {
     navigationUI: 'auto',
   }
 ): Promise<void> => {
-  return el[FunAPI.exitFullscreen](options)
+  // console.log(FunAPI)
+  return el[FunAPI.requestFullscreen](options)
 }
 
 const closeFull = (): Promise<void> => {
-  return document[FunAPI.exitFullscreen]()
+  return _DOC[FunAPI.exitFullscreen]()
 }
 
 const toggleFull = (
-  el: Element = document.documentElement,
+  el: Element = (_DOC as Document).documentElement,
   options: FullscreenOptions = {
     navigationUI: 'auto',
   }

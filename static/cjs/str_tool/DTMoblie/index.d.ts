@@ -3,5 +3,5 @@
  * @param [strng] mobile
  * @returns[string] 返回处理后的手机号
  */
-declare const DTMoblie: (mobile: string) => string;
-export { DTMoblie };
+declare const DTMobile: (mobile: string) => string;
+export { DTMobile };

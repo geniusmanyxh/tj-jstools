@@ -60,8 +60,8 @@ interface IComStorageFun {
 
 const StorageTypeInstance: StorageInstanceType = {
   cookie: Cookies as Cookies.CookiesStatic,
-  local: localStorage as Storage,
-  session: sessionStorage as Storage,
+  local:globalThis?.localStorage as Storage,
+  session: globalThis?.sessionStorage as Storage,
 }
 
 const FormatUnitTime: IFormatUnitTime = {

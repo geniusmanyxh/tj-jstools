@@ -9,18 +9,61 @@
  <!-- <script src="../static/umd/index.d.ts"></script> -->
 </head>
 <body>
-  <script>
+  <button onclick=" openFull()">openFull</button>
+  <button onclick=" isFull()">isFull</button>
+  <button onclick=" getFullEl()">getFullEl</button>
+  <button onclick=" exitFull()">exitFull</button>
+  <button onclick=" toggleFull()">toggleFull</button>
+  <button onclick=" isFullEnabled()">isFullEnabled</button>
+  <div id="kkk" style="width: 100%;height: 100px;background-color: red;">
+    666
+  </div>
+  <script>  
     console.log(this._tj)
-    const tCookie = this._tj.newStorage('cookie',{prefix:'ddd',expireTime:1000,unitTime:'ms'})
-    console.log(tCookie)
-    tCookie.setFun('key55',{a:'6666'})
-    tCookie.setFun('key',{obj:'test setFun'})
-    tCookie.setFun('key556',)
-    console.log(tCookie.existFun('key55'))
-    setTimeout(() => {
-      let a = tCookie.getFun('key556')
-      console.log(a,typeof a)
-    }, 500);
+    const tj = this._tj 
+    // tj.openFull()
+    
+    function openFull () {
+      tj.openFull(document.getElementById('kkk'),{navigationUI:'show'})
+    }
+    function isFull () {
+      console.log('isfull',tj.isFull())
+    }
+
+    function getFullEl () {
+      console.log('getFullEl',tj.getFullEl())
+    }
+
+    function exitFull () {
+      tj.closeFull()
+    }
+
+    function toggleFull () {
+      tj.toggleFull()
+    }
+    function isFullEnabled() {
+      console.log('isFullEnabled',tj.isFullEnabled())
+    }
+    isFull()
+    exitFull()
+    toggleFull()
+    getFullEl()
+    isFullEnabled()
+
+
+
+
+    // const tCookie = this._tj.newStorage('cookie',{prefix:'ddd',expireTime:1000,unitTime:'ms'})
+    // console.log(tCookie)
+    // tCookie.setFun('key55',{a:'6666'})
+    // tCookie.setFun('key',{obj:'test setFun'})
+    // tCookie.setFun('key556',)
+    // console.log(tCookie.existFun('key55'))
+    // setTimeout(() => {
+    //   let a = tCookie.getFun('key556')
+    //   console.log(a,typeof a)
+    // }, 500);
+    
     // setTimeout(()=>{
     //   console.log(tCookie.existFun('key55'))
     // },1001)
