@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: GitHub源码地址
       link: https://github.com/geniusmanyxh/tj-jstools
+    - theme: alt
+      text: Gitee源码地址
+      link: https://gitee.com/geniusman/tj-jstools
 features:
   - icon: ⚡️
     title: 方便
