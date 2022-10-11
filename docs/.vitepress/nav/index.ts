@@ -5,6 +5,7 @@ const navList = [
     text: '相关连接',
     items: [
       { text: '我的博客', link: 'https://www.itbooks.work' },
+      { text: '日志变更', link: 'https://github.com/geniusmanyxh/tj-jstools/blob/master/CHANGELOG.md'}
     ]
   }
 ]
