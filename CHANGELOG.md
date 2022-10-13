@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/geniusmanyxh/tj-jstools/compare/v1.1.3...v1.2.0) (2022-10-13)
+
+
+### Features
+
+* 新增数值工具===>数字金额转大写人民币汉字 ([0589fa4](https://github.com/geniusmanyxh/tj-jstools/commit/0589fa41aee763156d0d1a41bde3b51e9b655c6a))
+
+
+
+## [1.1.3](https://github.com/geniusmanyxh/tj-jstools/compare/v1.1.2...v1.1.3) (2022-10-11)
+
+
+
 ## [1.1.2](https://github.com/geniusmanyxh/tj-jstools/compare/v1.1.1...v1.1.2) (2022-10-10)
 
 

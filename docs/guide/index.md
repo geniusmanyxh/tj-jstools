@@ -9,7 +9,7 @@ titleTemplate: JSTOOLS
 - [函数首页](/functions/) <!-- sends the user to index.html of directory foo -->
 - [数据类型工具入口](/functions/typeTool/) <!-- anchors user to a heading in the foo index file -->
 - [字符串工具入口](/functions/stringTool/) <!-- you can omit extention -->
-- [数值工具入口(还未开发)](/functions/numberTool/) <!-- you can append .md -->
+- [数值工具入口](/functions/numberTool/) <!-- you can append .md -->
 - [数组工具入口](/functions/arrayTool/) <!-- or you can append .html -->
 - [对象工具入口(还未开发)](/functions/objectTool/) <!-- or you can append .html -->
 - [URL工具入口](/functions/urlTool/) <!-- or you can append .html -->
