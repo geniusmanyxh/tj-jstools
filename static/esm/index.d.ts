@@ -14,3 +14,5 @@ import { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull } fro
 export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull };
 import { toTreeData, treeToFlat, findTreeData } from './arr_tool/TreeData';
 export { toTreeData, treeToFlat, findTreeData };
+import { formatChineseRMB } from './num_tool/formatChineseRMB';
+export { formatChineseRMB };

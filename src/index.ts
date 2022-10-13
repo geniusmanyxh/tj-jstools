@@ -78,3 +78,8 @@ export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull }
 import { toTreeData, treeToFlat, findTreeData } from './arr_tool/TreeData'
 
 export { toTreeData, treeToFlat, findTreeData }
+
+// -------------- num_tool--------------
+import { formatChineseRMB } from './num_tool/formatChineseRMB'
+
+export { formatChineseRMB }

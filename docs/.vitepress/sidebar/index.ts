@@ -33,7 +33,8 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
     storage_tool: '/functions/storageTool/',
     browser_tool: '/functions/browserTool/',
     string_tool: '/functions/stringTool/',
-    array_tool:'/functions/arrayTool/'
+    array_tool:'/functions/arrayTool/',
+    number_tool:'/functions/numberTool/'
   }
   const joinTypeUrl = joinUrl(baseUrl.type_tool)
   const joinURLUrl = joinUrl(baseUrl.url_tool)
@@ -41,6 +42,7 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
   const joinBrowserUrl = joinUrl(baseUrl.browser_tool)
   const joinStringTool = joinUrl(baseUrl.string_tool)
   const joinArrayTool = joinUrl(baseUrl.array_tool)
+  const joinNumberTool = joinUrl(baseUrl.number_tool)
   const rtnSider:DefaultTheme.SidebarGroup[] = [
     
     {
@@ -82,17 +84,15 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
         { text: 'DTMobile', link: joinStringTool('DTMobile')},
       ]
     },
-    // {
-    //   text: '数值篇',
-    //   collapsible: true, // 开启可折叠侧边栏
-    //   collapsed: true, // 初始加载页面时关闭
-    //   items: [
-    //     { text: '函数列表概览', link: joinArrayTool() },
-    //     { text: 'toTreeData',link:joinArrayTool('toTreeData')},
-    //     { text: 'treeToFlat', link: joinArrayTool('treeToFlat')},
-    //     { text: 'findTreeData', link: joinArrayTool('findTreeData')},
-    //   ]
-    // },
+    {
+      text: '数值篇',
+      collapsible: true, // 开启可折叠侧边栏
+      collapsed: true, // 初始加载页面时关闭
+      items: [
+        { text: '函数列表概览', link: joinNumberTool() },
+        { text: 'formatChineseRMB',link:joinNumberTool('formatChineseRMB')},
+      ]
+    },
     {
       text: '数组篇',
       collapsible: true, // 开启可折叠侧边栏
