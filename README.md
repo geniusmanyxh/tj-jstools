@@ -15,14 +15,15 @@ npm install tj-jstools
 ```
 
 **浏览器方式**
-- [index.js下载地址](https://github.com/geniusmanyxh/tj-jstools/blob/master/static/umd/index.js)
+- [jsdelivr的umd格式地址](https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js)
 ```js
-<script src="./index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js"></script>
 <script>
   const {_tj} = window
   console.log(_tj);
 </script>
 ```
+引入后，查看全局变量中的`window._tj`对象，里面包含了所有工具函数。
 
 ## 各类API列表
 
@@ -57,6 +58,13 @@ npm install tj-jstools
 | ---- | :--------------: | --------------------------- |
 | 1    | `charInCounts` | 计算字符串中指定字符出现的次数 |
 | 2    | `DTMobile` | 手机号脱敏处理  |
+
+### 数值篇
+
+
+| 序号 |    名称     |  功能简介                    |
+| ---- | :--------------: |  --------------------------- |
+| 1    | [`formatChineseRMB`] | 数字金额转换为大写人民币汉字 |
 
 ### 数组篇
 
