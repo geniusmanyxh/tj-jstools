@@ -1,6 +1,6 @@
 {
   "name": "tj-jstools",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A diverse JS tool library",
   "main": "static/cjs/index.js",
   "module": "static/esm/index.js",
