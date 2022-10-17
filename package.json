@@ -6,8 +6,7 @@
   "module": "static/esm/index.js",
   "types": "static/esm/index.d.ts",
   "files": [
-    "static/cjs",
-    "static/esm"
+    "static",
   ],
   "scripts": {
     "test": "node test",
