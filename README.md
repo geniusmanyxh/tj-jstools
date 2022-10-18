@@ -91,6 +91,8 @@ npm install tj-jstools
 | 4    | `openFull` | 打开全屏  |
 | 5    | `closeFull` | 关闭全屏  |
 | 6    | `toggleFull` | 打开或者关闭全屏  |
+| 7    | `scrollBackTop`| 返回浏览器顶部  |
+| 8    | `scrollProgressBar`| 计算当前页面已读内容的百分比占比  |
 
 ### 浏览器缓存篇
 

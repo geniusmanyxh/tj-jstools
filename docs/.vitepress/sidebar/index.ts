@@ -136,6 +136,8 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
         { text: 'openFull', link: joinBrowserUrl('openFull')},
         { text: 'closeFull', link: joinBrowserUrl('closeFull')},
         { text: 'toggleFull', link: joinBrowserUrl('toggleFull')},
+        { text: 'scrollBackTop', link: joinBrowserUrl('scrollBackTop')},
+        { text: 'scrollProgressBar', link: joinBrowserUrl('scrollProgressBar')},
       ]
     },
     {
