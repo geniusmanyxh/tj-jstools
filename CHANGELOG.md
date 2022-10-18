@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/geniusmanyxh/tj-jstools/compare/v1.2.1...v1.3.0) (2022-10-18)
+
+
+### Features
+
+* 新增方法scrollProgressBar、scrollBackTop ([366cd35](https://github.com/geniusmanyxh/tj-jstools/commit/366cd35d7c74026a7e45e7c8bc05b4ee0d81f378))
+
+
+
+## [1.2.1](https://github.com/geniusmanyxh/tj-jstools/compare/v1.2.0...v1.2.1) (2022-10-17)
+
+
+
 # [1.2.0](https://github.com/geniusmanyxh/tj-jstools/compare/v1.1.3...v1.2.0) (2022-10-13)
 
 
