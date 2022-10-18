@@ -10,9 +10,9 @@ npm install tj-jstools
 ```
 
 **浏览器方式**
-- [jsdelivr的umd格式地址](https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js)
+- [jsdelivr的umd格式地址](https://cdn.jsdelivr.net/npm/tj-jstools@1.3.0/static/umd/index.js)
 ```js
-<script src="https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tj-jstools@1.3.0/static/umd/index.js"></script>
 <script>
   const {_tj} = window
   console.log(_tj);
