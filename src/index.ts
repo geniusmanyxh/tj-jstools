@@ -71,8 +71,9 @@ export { charInCounts, DTMobile }
 
 // -------------- browser_tool--------------
 import { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull } from './browser_tool/screen'
+import { scrollProgressBar, scrollBackTop } from './browser_tool/scroll'
 
-export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull }
+export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull, scrollProgressBar, scrollBackTop }
 
 // -------------- arr_tool--------------
 import { toTreeData, treeToFlat, findTreeData } from './arr_tool/TreeData'
