@@ -16,4 +16,5 @@ export { isFull, getFullEl, isFullEnabled, openFull, closeFull, toggleFull, scro
 import { toTreeData, treeToFlat, findTreeData } from './arr_tool/TreeData';
 export { toTreeData, treeToFlat, findTreeData };
 import { formatChineseRMB } from './num_tool/formatChineseRMB';
-export { formatChineseRMB };
+import { numberThousandsFormat } from './num_tool/numberThousandsFormat';
+export { formatChineseRMB, numberThousandsFormat };

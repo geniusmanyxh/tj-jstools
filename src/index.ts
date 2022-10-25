@@ -82,5 +82,6 @@ export { toTreeData, treeToFlat, findTreeData }
 
 // -------------- num_tool--------------
 import { formatChineseRMB } from './num_tool/formatChineseRMB'
+import { numberThousandsFormat } from './num_tool/numberThousandsFormat'
 
-export { formatChineseRMB }
+export { formatChineseRMB , numberThousandsFormat}

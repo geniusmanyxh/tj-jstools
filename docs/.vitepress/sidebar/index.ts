@@ -91,6 +91,7 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
       items: [
         { text: '函数列表概览', link: joinNumberTool() },
         { text: 'formatChineseRMB',link:joinNumberTool('formatChineseRMB')},
+        { text: 'numberThousandsFormat',link:joinNumberTool('numberThousandsFormat')},
       ]
     },
     {

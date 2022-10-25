@@ -31,6 +31,7 @@ head:
 | 序号 |    名称     | 参数            | 功能简介                    |
 | ---- | :--------------: | --------------- | --------------------------- |
 | 1    | [`formatChineseRMB`](./formatChineseRMB.html) | money: `number` | 数字金额转换为大写人民币汉字 |
+| 2    | [`numberThousandsFormat`](./numberThousandsFormat.html) |num:`number`,<br/>decimal?: `number` | 数值千分位格式化处理 |
 
 ::: tip
 点击API名称，可以直接进入对应API详情页面！

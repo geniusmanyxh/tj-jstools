@@ -64,7 +64,8 @@ npm install tj-jstools
 
 | 序号 |    名称     |  功能简介                    |
 | ---- | :--------------: |  --------------------------- |
-| 1    | [`formatChineseRMB`] | 数字金额转换为大写人民币汉字 |
+| 1    | `formatChineseRMB` | 数字金额转换为大写人民币汉字 |
+| 2    | `numberThousandsFormat`| 数值千分位格式化处理 |
 
 ### 数组篇
 
