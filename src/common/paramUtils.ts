@@ -1,14 +1,13 @@
-
-function paramsNullError (prefix:string = '',customTxt?:string) {
-  let deaInfo = '参数不能为空！'
+function paramsNullError(prefix = "", customTxt?: string) {
+  let deaInfo = "参数不能为空！";
   if (prefix) {
-    deaInfo = prefix + deaInfo
+    deaInfo = prefix + deaInfo;
   }
   if (customTxt) {
-    deaInfo = customTxt
+    deaInfo = customTxt;
   }
-  console.error(deaInfo)
-  throw Error(deaInfo)
+  console.error(deaInfo);
+  throw Error(deaInfo);
 }
 
-export {paramsNullError}
+export { paramsNullError };

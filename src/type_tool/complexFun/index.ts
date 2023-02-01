@@ -1,192 +1,200 @@
-import * as numT from '../numDel'
-import * as objT from '../objDel'
-import {paramsNullError} from '../../common/paramUtils'
+import * as numT from "../numDel";
+import * as objT from "../objDel";
+import { paramsNullError } from "../../common/paramUtils";
 
 type returnTypeStr =
-  | 'string'
-  | 'bigint'
-  | 'boolean'
-  | 'symbol'
-  | 'undefined'
-  | 'object'
-  | 'function'
-  | 'array'
-  | 'object'
-  | 'date'
-  | 'null'
-  | 'int'
-  | 'float'
-  | 'infinite'
-  | 'NaN'
+  | "string"
+  | "bigint"
+  | "boolean"
+  | "symbol"
+  | "undefined"
+  | "object"
+  | "function"
+  | "array"
+  | "object"
+  | "date"
+  | "null"
+  | "int"
+  | "float"
+  | "infinite"
+  | "NaN";
 
 type arrayTypeDetail = {
-  index: string | number
-  value: any
-  type: returnTypeStr
-}
+  index: string | number;
+  value: any;
+  type: returnTypeStr;
+};
 
 type objectTypeDetail = {
-  key: string
-  value: any
-  type: returnTypeStr
-}
+  key: string;
+  value: any;
+  type: returnTypeStr;
+};
 
 // 定义一个typeof可以直接判断出来的单一类型数组
-let simpleTypeArr = [
-  'string',
-  'bigint',
-  'boolean',
-  'symbol',
-  'undefined',
-  'function',
-]
+const simpleTypeArr = [
+  "string",
+  "bigint",
+  "boolean",
+  "symbol",
+  "undefined",
+  "function",
+];
 
 function getType(params: unknown): returnTypeStr {
   if (arguments.length === 0) {
-    console.warn('getType方法没有接收到参数,返回的类型为undefined')
-    return 'undefined'
+    console.warn("getType方法没有接收到参数,返回的类型为undefined");
+    return "undefined";
   }
-  let rtnStr: returnTypeStr | 'number' = 'string'
-  let typeStr: returnTypeStr | 'number' = typeof params
-  let typeFlag = simpleTypeArr.includes(typeStr)
+  let rtnStr: returnTypeStr | "number" = "string";
+  const typeStr: returnTypeStr | "number" = typeof params;
+  const typeFlag = simpleTypeArr.includes(typeStr);
 
   if (typeFlag) {
-    rtnStr = typeStr
+    rtnStr = typeStr;
   } else {
-    if (typeStr === 'number') {
+    if (typeStr === "number") {
       if (numT.isInt(params)) {
-        rtnStr = 'int'
+        rtnStr = "int";
       } else if (numT.isFloat(params)) {
-        rtnStr = 'float'
+        rtnStr = "float";
       } else if (numT.isNaN(params)) {
-        rtnStr = 'NaN'
+        rtnStr = "NaN";
       } else if (numT.isInfinite(params)) {
-        rtnStr = 'infinite'
+        rtnStr = "infinite";
       }
-    } else if (typeStr === 'object') {
+    } else if (typeStr === "object") {
       if (objT.isNull(params)) {
-        rtnStr = 'null'
+        rtnStr = "null";
       } else if (objT.isObject(params)) {
-        rtnStr = 'object'
+        rtnStr = "object";
       } else if (objT.isArray(params)) {
-        rtnStr = 'array'
+        rtnStr = "array";
       } else if (objT.isFunction(params)) {
-        rtnStr = 'function'
+        rtnStr = "function";
       } else if (objT.isDate(params)) {
-        rtnStr = 'date'
+        rtnStr = "date";
       }
     }
   }
 
-  return rtnStr as returnTypeStr
+  return rtnStr as returnTypeStr;
 }
 
 function getArrayAllType(params: any[]): returnTypeStr[] {
   if (!objT.isArray(params)) {
-    paramsNullError("","getArrayAllType方法接收的参数应该是一个数组")
+    paramsNullError("", "getArrayAllType方法接收的参数应该是一个数组");
   }
-  let rtnArr: returnTypeStr[] = []
+  const rtnArr: returnTypeStr[] = [];
   if (arguments.length > 0 && params.length > 0) {
     for (let i = 0; i < params.length; i++) {
-      let val = params[i]
-      rtnArr.push(getType(val))
+      const val = params[i];
+      rtnArr.push(getType(val));
     }
-  } 
-  return rtnArr
+  }
+  return rtnArr;
 }
 
-function getArrayTypeDetail(params: any[],selectType?: returnTypeStr | 'number'): arrayTypeDetail[] {
+function getArrayTypeDetail(
+  params: any[],
+  selectType?: returnTypeStr | "number"
+): arrayTypeDetail[] {
   if (!objT.isArray(params)) {
-    paramsNullError("","getArrayTypeDetail方法接收的参数应该是一个数组")
+    paramsNullError("", "getArrayTypeDetail方法接收的参数应该是一个数组");
   }
-  let resArr: arrayTypeDetail[] = []
+  let resArr: arrayTypeDetail[] = [];
   if (arguments.length > 0) {
-    let selectArr: arrayTypeDetail[] = []
-    let allArr: arrayTypeDetail[] = []
+    const selectArr: arrayTypeDetail[] = [];
+    const allArr: arrayTypeDetail[] = [];
 
     for (let i = 0; i < params.length; i++) {
-      let index = i
-      let value = params[i]
-      let type:returnTypeStr = getType(value)
+      const index = i;
+      const value = params[i];
+      const type: returnTypeStr = getType(value);
 
-      allArr.push({ index, value, type })
+      allArr.push({ index, value, type });
 
       if (selectType) {
-        if (selectType === 'number' && (['int','float'].includes(type))) {
-          selectArr.push({ index, value, type })
-        } else if(selectType === type) {
-          selectArr.push({ index, value, type })
+        if (selectType === "number" && ["int", "float"].includes(type)) {
+          selectArr.push({ index, value, type });
+        } else if (selectType === type) {
+          selectArr.push({ index, value, type });
         }
-        continue
+        continue;
       }
     }
 
     if (selectType) {
-      resArr = [...selectArr]
+      resArr = [...selectArr];
     } else {
-      resArr = [...allArr]
+      resArr = [...allArr];
     }
   }
 
-  return resArr
+  return resArr;
 }
 
-function getObjectAllType(params: object):returnTypeStr[] {
+function getObjectAllType(params: object): returnTypeStr[] {
   if (!objT.isObject(params)) {
-    paramsNullError("","getObjectAllType方法接收的参数应该是一个对象")
+    paramsNullError("", "getObjectAllType方法接收的参数应该是一个对象");
   }
-  let resArr:returnTypeStr[] = []
+  const resArr: returnTypeStr[] = [];
   if (arguments.length > 0) {
-
     for (const key in params) {
       if (Object.hasOwnProperty.call(params, key)) {
-        let val = params[key]
-        resArr.push(getType(val))
+        const val = params[key];
+        resArr.push(getType(val));
       }
     }
   }
 
-  return resArr
+  return resArr;
 }
 
-function getObjectTypeDetail(params:object, selectType?:returnTypeStr | 'number'):objectTypeDetail[] {
+function getObjectTypeDetail(
+  params: object,
+  selectType?: returnTypeStr | "number"
+): objectTypeDetail[] {
   if (!objT.isObject(params)) {
-    paramsNullError("","getObjectTypeDetail方法接收的参数应该是一个对象")
+    paramsNullError("", "getObjectTypeDetail方法接收的参数应该是一个对象");
   }
-  let resArr:objectTypeDetail[] = []
+  let resArr: objectTypeDetail[] = [];
   if (arguments.length > 0) {
-   
-    let selectArr:objectTypeDetail[] = []
-    let allArr:objectTypeDetail[] = []
+    const selectArr: objectTypeDetail[] = [];
+    const allArr: objectTypeDetail[] = [];
 
     for (const key in params) {
-        
       if (Object.hasOwnProperty.call(params, key)) {
-        let value = params[key]
-        let type = getType(value)
+        const value = params[key];
+        const type = getType(value);
 
-        allArr.push({ key, value, type })
+        allArr.push({ key, value, type });
 
         if (selectType) {
-          if (selectType === 'number' && (['int','float'].includes(type))) {
-            selectArr.push({ key, value, type })
-          } else if(selectType === type) {
-            selectArr.push({ key, value, type })
+          if (selectType === "number" && ["int", "float"].includes(type)) {
+            selectArr.push({ key, value, type });
+          } else if (selectType === type) {
+            selectArr.push({ key, value, type });
           }
         }
-        continue
-        
+        continue;
       }
     }
-   
+
     if (selectType) {
-      resArr = [...selectArr]
+      resArr = [...selectArr];
     } else {
-      resArr = [...allArr]
+      resArr = [...allArr];
     }
   }
- 
-  return resArr
+
+  return resArr;
 }
 
-export { getType, getArrayAllType, getArrayTypeDetail, getObjectAllType, getObjectTypeDetail }
+export {
+  getType,
+  getArrayAllType,
+  getArrayTypeDetail,
+  getObjectAllType,
+  getObjectTypeDetail,
+};

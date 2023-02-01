@@ -1,0 +1,4 @@
+#在工程目录下添加 .gitattributes 文件，文件内容为:
+  
+ package.json text eol=lf
+ package-lock.json text eol=lf

@@ -9,6 +9,8 @@
     "static/"
   ],
   "scripts": {
+    "lint": "eslint --fix --ext .ts src",
+    "format": "prettier --write \"src/**/*.ts\" ",
     "test": "node test",
     "build": "npx tsc -p .",
     "rollup:build": "rollup -c",
@@ -16,7 +18,8 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "init:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "init:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "prepare": "husky install"
   },
   "homepage": "https://github.com/geniusmanyxh/tj-jstools",
   "bugs": "https://github.com/geniusmanyxh/tj-jstools/issues",
@@ -62,6 +65,16 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.3",
     "rollup": "^2.79.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.0",
