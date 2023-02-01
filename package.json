@@ -9,6 +9,7 @@
     "static/"
   ],
   "scripts": {
+    "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .ts src",
     "format": "prettier --write \"src/**/*.ts\" ",
     "test": "node test",
@@ -69,6 +70,7 @@
     "@rollup/plugin-node-resolve": "^14.1.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
+    "@vitest/coverage-c8": "^0.28.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
@@ -82,7 +84,8 @@
     "rollup-plugin-typescript2": "^0.34.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3",
-    "vitepress": "^1.0.0-alpha.15"
+    "vitepress": "^1.0.0-alpha.15",
+    "vitest": "^0.28.3"
   },
   "engines": {
     "node": ">=16.6.1",

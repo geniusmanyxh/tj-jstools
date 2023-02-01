@@ -1,6 +1,10 @@
 # tj-jstools (持续开发中...)
 A diverse JS tool library
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/geniusmanyxh/tj-jstools/main.yml?style=plastic)&nbsp;
+![npm](https://img.shields.io/npm/dw/tj-jstools?style=plastic)&nbsp;
+![NPM](https://img.shields.io/npm/l/tj-jstools?style=plastic)
+
 - [文档地址](http://jstools.itbooks.work)
 
 前端业务工具库
