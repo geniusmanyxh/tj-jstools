@@ -12,7 +12,7 @@ export default defineConfig({
     theme: 'material-palenight',
     lineNumbers: true
   },
-  // base:'./',
+  base:'/tj-jstools/',
 
 
   themeConfig:{
