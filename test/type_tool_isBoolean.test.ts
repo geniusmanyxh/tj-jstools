@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 
-import { isBoolean } from "tj-jstools";
+// import { isBoolean } from "tj-jstools";
+import { isBoolean } from "../static/esm";
 
 describe("测试类型判断方法 ===> isBoolean", () => {
   it("判断字符串", () => {
