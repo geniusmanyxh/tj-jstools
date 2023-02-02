@@ -118,6 +118,7 @@
     "test",
     "types",
     "gulpfile.ts",
+    "vite.config.ts"
   ],
  
 }

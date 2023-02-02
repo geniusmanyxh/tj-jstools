@@ -3,8 +3,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   // 不同的解析器parser，parserOptions的值不相同，具体参考对应解析器文档
   parserOptions: {
-      project: 'tsconfig.json',
+      project: '[tsconfig.json]',
       sourceType: 'module',
+      tsconfigRootDir: __dirname
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [

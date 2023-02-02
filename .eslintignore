@@ -9,3 +9,4 @@ coverage
 src/index.ts
 dist
 static
+coverage

@@ -4,4 +4,5 @@ docs
 test
 .DS_Store
 .gitignore
-rollup.config.js 
+rollup.config.js
+coverage

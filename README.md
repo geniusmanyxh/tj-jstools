@@ -3,7 +3,16 @@ A diverse JS tool library
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/geniusmanyxh/tj-jstools/main.yml?style=plastic)&nbsp;
 ![npm](https://img.shields.io/npm/dw/tj-jstools?style=plastic)&nbsp;
-![NPM](https://img.shields.io/npm/l/tj-jstools?style=plastic)
+![NPM](https://img.shields.io/npm/l/tj-jstools?style=plastic)&nbsp;
+![npm](https://img.shields.io/npm/v/tj-jstools?style=plastic)&nbsp;
+![node-current](https://img.shields.io/node/v/tj-jstools?style=plastic)&nbsp;
+![GitHub Repo stars](https://img.shields.io/github/stars/geniusmanyxh/tj-jstools?style=social)&nbsp;
+![GitHub commit merge status](https://img.shields.io/github/commit-status/geniusmanyxh/tj-jstools/master/8dabedcffbc9f97c03ad4bed35b828a39530e0f1)&nbsp;
+![GitHub language count](https://img.shields.io/github/languages/count/geniusmanyxh/tj-jstools?style=plastic)&nbsp;
+![GitHub top language](https://img.shields.io/github/languages/top/geniusmanyxh/tj-jstools?style=plastic)&nbsp;
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/geniusmanyxh/tj-jstools?style=plastic)&nbsp;
+![GitHub last commit](https://img.shields.io/github/last-commit/geniusmanyxh/tj-jstools?style=plastic)&nbsp;
+![GitHub Release Date](https://img.shields.io/github/release-date/geniusmanyxh/tj-jstools?style=plastic)
 
 - [文档地址](http://jstools.itbooks.work)
 

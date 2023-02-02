@@ -9,6 +9,7 @@
     "static/"
   ],
   "scripts": {
+    "vtest": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint --fix --ext .ts src",
     "format": "prettier --write \"src/**/*.ts\" ",
@@ -71,12 +72,14 @@
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "@vitest/coverage-c8": "^0.28.3",
+    "@vitest/coverage-istanbul": "^0.28.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "happy-dom": "^6.0.4",
     "husky": "^8.0.3",
     "prettier": "^2.8.3",
     "rollup": "^2.79.0",
@@ -84,6 +87,7 @@
     "rollup-plugin-typescript2": "^0.34.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3",
+    "vite": "^3.2.5",
     "vitepress": "^1.0.0-alpha.15",
     "vitest": "^0.28.3"
   },
