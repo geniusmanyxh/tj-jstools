@@ -3,6 +3,7 @@ A diverse JS tool library
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/geniusmanyxh/tj-jstools/main.yml?style=plastic)&nbsp;
 ![npm](https://img.shields.io/npm/dw/tj-jstools?style=plastic)&nbsp;
+[![codecov](https://codecov.io/gh/geniusmanyxh/tj-jstools/branch/master/graph/badge.svg?token=EXYI8985P8)](https://codecov.io/gh/geniusmanyxh/tj-jstools)&nbsp;
 ![NPM](https://img.shields.io/npm/l/tj-jstools?style=plastic)&nbsp;
 ![npm](https://img.shields.io/npm/v/tj-jstools?style=plastic)&nbsp;
 ![node-current](https://img.shields.io/node/v/tj-jstools?style=plastic)&nbsp;
