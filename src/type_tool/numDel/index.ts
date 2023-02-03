@@ -25,7 +25,7 @@ function isInfinite(params: unknown): boolean {
     paramsNullError(`isInfinite方法的`);
   }
   const flag = typeof params === "number";
-  return flag && !Number.isFinite(params);
+  return flag && !Number.isFinite(params) && !Number.isNaN(params);
 }
 
 const isInt = isNumType("Int", "Integer");
