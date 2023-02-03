@@ -27,12 +27,12 @@ declare function getType(params: unknown): returnTypeStr
 ## 3-使用示例
 
 ```ts 
-  const res1:boolean = getType(Array) // function
-  const res2:boolean = getType({}) // object
-  const res3:boolean = getType(Array(1)) // array
-  const res4:boolean = getType() // undefined
-  const res5:boolean = getType(5) // int
-  const res6:boolean = getType(1/0) // infinite
+  const res1 = getType(Array) // function
+  const res2 = getType({}) // object
+  const res3 = getType(Array(1)) // array
+  const res4 = getType() // undefined
+  const res5 = getType(5) // int
+  const res6 = getType(1/0) // infinite
 ```
 ::: tip
 特别注意该方法返回的类型里面没有：`number` | `finite`; <br/>

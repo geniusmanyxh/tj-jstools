@@ -1,4 +1,4 @@
-# tj-jstools (持续开发中...)
+# tj-jstools 工具库
 A diverse JS tool library
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/geniusmanyxh/tj-jstools/main.yml?style=plastic)&nbsp;
@@ -15,23 +15,32 @@ A diverse JS tool library
 ![GitHub last commit](https://img.shields.io/github/last-commit/geniusmanyxh/tj-jstools?style=plastic)&nbsp;
 ![GitHub Release Date](https://img.shields.io/github/release-date/geniusmanyxh/tj-jstools?style=plastic)
 
-- [文档地址](http://jstools.itbooks.work)
+- [官方使用文档地址：http://jstools.itbooks.work](http://jstools.itbooks.work)
+- [GitHub 使用文档地址：https://geniusmanyxh.github.io/tj-jstools/](https://geniusmanyxh.github.io/tj-jstools/)
 
 前端业务工具库
 
-编写有关js数据类型、浏览器信息、浏览器存储、url、字符串、数值、数组、对象等相关操作，让业务逻辑简单化。
+使用`TypeScript`编写有关js数据类型、浏览器信息、浏览器存储、url、字符串、数值、数组、对象等相关操作，让业务逻辑简单化。
 
-## 安装
+---
+
+[TOC]
+
+----
+
+## 🛠️安装
 
 **npm方式**
+
 ```sh
 npm install tj-jstools
 ```
 
 **浏览器方式**
+
 - [jsdelivr的umd格式地址](https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js)
 ```js
-<script src="https://cdn.jsdelivr.net/npm/tj-jstools@1.2.1/static/umd/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tj-jstools@1.3.2/static/umd/index.js"></script>
 <script>
   const {_tj} = window
   console.log(_tj);
@@ -39,9 +48,110 @@ npm install tj-jstools
 ```
 引入后，查看全局变量中的`window._tj`对象，里面包含了所有工具函数。
 
-## 各类API列表
+---
 
-### 数据类型篇
+## 📖简单使用的Demo
+
+#### 判断数据类型Demo
+
+```typescript
+import { isInt, isFloat, isNumber} from 'tj-jstools'
+
+const isNumRes = isNumber(12.9); // true
+const isIntRes = isInt(12.9); // false
+const isFloatRes = isFloat(12.9); // true
+
+```
+
+当你想确定某一个变量或者值，是否和你预想的一样是可以使用以上这些数据类型判断函数。
+
+当你想获取某一个变量或者值具体的数据类型时，你可以使用以下函数：
+
+```typescript
+import { getType, getArrayAllType, getObjectAllType} from 'tj-jstools'
+
+const getTypeRes1 = getType(Array(1)) // array
+const getTypeRes2 = getType({}) // object
+const getTypeRes3 = getType() // undefined
+const getTypeRes4 = getType(1/0) // infinite
+
+// 判断数组里面的数据类型
+ const arr = [true,null,undefined,1/0,5,5.01,{},[],()=>{},NaN,'']
+ const arrRes = getArrayAllType(arr) 
+  //['boolean', 'null', 'undefined', 'infinite', 'int', 'float','object',
+  // 'array','function','NaN','string']
+ 
+// 判断对象里面的数据类型
+ const testObj = {
+    a: true,
+    b: null,
+    c: undefined,
+    d: 6,
+    e: 6.01,
+    f: 1/0,
+    g: {},
+    h: [],
+    i: () => {}
+  }
+  const objRes = getObjectAllType(testObj)
+  /*
+[
+  'boolean', 'null', 'undefined', 'int', 'float','infinite',
+  'object',  'array', 'function'
+]
+  */
+```
+
+---
+
+#### 浏览器缓存（cookie/localStorage/sessionStorage）Demo
+
+```typescript
+import { newStorage } from 'tj-jstools'
+const Coptions = {
+  prefix:'tj',
+  linkSign: '@',
+  suffix:'jstools',
+  expireTime: 2,
+  unitTime: 'd'
+}
+// 创建一个操作Cookie的实例
+const CInstance = newStorage('cookie',Coptions)
+
+//创建一个操作localStorage的实例
+const LInstance = newStorage('local',Coptions)
+
+// 创建一个操作sessionStorage的实例
+const SInstance = newStorage('session',Coptions)
+
+// 保存和获取cookie值
+CInstance.setFun('test','testValue')
+CInstance.getFun('test') // tj@test@jstools: testValue ; 过期时间：2天
+
+// 保存和获取localStorage值
+LInstance.setFun('test','testValue')
+LInstance.getFun('test') // tj@test@jstools: testValue ; 过期时间：2天
+
+// 保存和获取sessionStorage值
+SInstance.setFun('test','testValue')
+SInstance.getFun('test') // tj@test@jstools: testValue ; 过期时间：2天
+```
+
+**注意：**
+
+- **对sessionStorage设置过期时间，其实效果不大，会随着浏览器的关闭而消亡**
+
+- **如果cookie不设置expires，cookie 会在对话结束时过期**
+
+- **具体操作可以查看文档：[https://geniusmanyxh.github.io/tj-jstools/](https://geniusmanyxh.github.io/tj-jstools/)**
+
+---
+
+
+
+## 👉各类API列表
+
+### 数据类型篇(DataType)
 
 | 序号 |    名称      | 功能简介                    |
 | ---- | :--------------:  | --------------------------- |
@@ -60,20 +170,20 @@ npm install tj-jstools
 | 13   |  `isDate` | 判断数据是否是`date`类型  |
 | 14   |  `isFunction` | 判断数据是否是`function`类型  |
 | 15   |  `isObject` | 判断数据是否是`object`类型  |
-| 16   |  `getType` | 判断数据是否是`returnTypeStr`类型  |
-| 17   |  `getArrayAllType` | 判断数组值是否是`returnTypeStr`类型  |
-| 18   |  `getArrayTypeDetail` | 判断数组值是否是`returnTypeStr`类型  |
-| 19   |  `getObjectAllType`| 判断对象属性是否是`returnTypeStr`类型  |
-| 20   |  `getObjectTypeDetail`| 判断对象属性是否是`returnTypeStr`类型  |
+| 16   |  `getType` | 判断数据是否是`returnTypeStr`类型，并返回类型 |
+| 17   |  `getArrayAllType` | 判断数组值是否是`returnTypeStr`类型，并返回类型 |
+| 18   |  `getArrayTypeDetail` | 判断数组值是否是`returnTypeStr`类型，并返回类型 |
+| 19   |  `getObjectAllType`| 判断对象属性是否是`returnTypeStr`类型，并返回类型 |
+| 20   |  `getObjectTypeDetail`| 判断对象属性是否是`returnTypeStr`类型，并返回类型 |
 
-### 字符串篇
+### 字符串篇(String)
 
 | 序号 |    名称       | 功能简介                    |
 | ---- | :--------------: | --------------------------- |
 | 1    | `charInCounts` | 计算字符串中指定字符出现的次数 |
 | 2    | `DTMobile` | 手机号脱敏处理  |
 
-### 数值篇
+### 数值篇(Number)
 
 
 | 序号 |    名称     |  功能简介                    |
@@ -81,7 +191,7 @@ npm install tj-jstools
 | 1    | `formatChineseRMB` | 数字金额转换为大写人民币汉字 |
 | 2    | `numberThousandsFormat`| 数值千分位格式化处理 |
 
-### 数组篇
+### 数组篇(Array)
 
 | 序号 |    名称    | 功能简介                    |
 | ---- | :--------------: | --------------------------- |
@@ -109,7 +219,7 @@ npm install tj-jstools
 | 7    | `scrollBackTop`| 返回浏览器顶部  |
 | 8    | `scrollProgressBar`| 计算当前页面已读内容的百分比占比  |
 
-### 浏览器缓存篇
+### 浏览器缓存篇(Cookie/LoaclStorage/SessionStorage)
 
 | 序号 |    名称     | 功能简介                    |
 | ---- | :--------------: | --------------------------- |

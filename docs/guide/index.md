@@ -3,6 +3,33 @@ title: 工具函数集
 titleTemplate: JSTOOLS
 ---
 # 【{{ $frontmatter.title }} —— {{$frontmatter.titleTemplate}}】
+---
+<div style="display:flex; flex-wrap: wrap;">
+ <div style="margin-top:2px;margin-left:2px;">
+ <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/geniusmanyxh/tj-jstools/main.yml?style=plastic"/>&nbsp;
+ </div> 
+
+ <div style="margin-top:2px;margin-left:2px;">  <img  alt="npm" src="https://img.shields.io/npm/dw/tj-jstools?style=plastic"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="codecov" src="https://codecov.io/gh/geniusmanyxh/tj-jstools/branch/master/graph/badge.svg?token=EXYI8985P8"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="NPM" src="https://img.shields.io/npm/l/tj-jstools?style=plastic"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;">
+  <img alt="npm" src="https://img.shields.io/npm/v/tj-jstools?style=plastic"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="node-current" src="https://img.shields.io/node/v/tj-jstools?style=plastic"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/geniusmanyxh/tj-jstools?style=social"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="GitHub commit merge status" src="https://img.shields.io/github/commit-status/geniusmanyxh/tj-jstools/master/8dabedcffbc9f97c03ad4bed35b828a39530e0f1"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;">  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/geniusmanyxh/tj-jstools?style=plastic"/>&nbsp;</div>
+ <div style="margin-top:2px;margin-left:2px;"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/geniusmanyxh/tj-jstools?style=plastic"/>&nbsp;</div>
+
+  <div style="margin-top:2px;margin-left:2px;"> <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/geniusmanyxh/tj-jstools?style=plastic"/>&nbsp;</div>
+  <div style="margin-top:2px;margin-left:2px;">  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/geniusmanyxh/tj-jstools?style=plastic"/>&nbsp;</div>
+  <div style="margin-top:2px;margin-left:2px;"><img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/geniusmanyxh/tj-jstools?style=plastic"/></div>  
+</div>
+
+
+- [官方使用文档地址：http://jstools.itbooks.work](http://jstools.itbooks.work)
+- [GitHub 使用文档地址：https://geniusmanyxh.github.io/tj-jstools/](https://geniusmanyxh.github.io/tj-jstools/)
+
+
 ## 快捷入口
 
 - [首页](/) <!-- sends the user to the root index.md -->
