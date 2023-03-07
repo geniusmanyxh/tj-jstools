@@ -64,8 +64,9 @@ export { newStorage }
 // -------------- str_tool--------------
 import { charInCounts } from './str_tool/simpleStrFun'
 import { DTMobile } from './str_tool/DTMoblie'
+import { createRandomVerifyCode } from './str_tool/verifyCode'
 
-export { charInCounts, DTMobile }
+export { charInCounts, DTMobile, createRandomVerifyCode }
 
 
 
