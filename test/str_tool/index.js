@@ -1,6 +1,6 @@
 const { createRandomVerifyCode } = require("tj-jstools");
 
-const code = createRandomVerifyCode(10, []);
+const code = createRandomVerifyCode(6, ["S", "s", "n"]);
 
 console.log(code);
 

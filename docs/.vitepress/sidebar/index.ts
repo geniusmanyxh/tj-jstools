@@ -82,6 +82,7 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
         { text: '函数列表概览', link: joinStringTool() },
         { text: 'charInCounts',link:joinStringTool('charInCounts')},
         { text: 'DTMobile', link: joinStringTool('DTMobile')},
+        { text: 'createRandomVerifyCode', link: joinStringTool('createRandomVerifyCode')},
       ]
     },
     {

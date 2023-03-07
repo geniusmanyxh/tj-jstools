@@ -33,6 +33,7 @@ head:
 | ---- | :--------------: | --------------- | --------------------------- |
 | 1    | [`charInCounts`](./charInCounts.html) | str:`string`,<br/> char:`string` | 计算字符串中指定字符出现的次数 |
 | 2    | [`DTMobile`](./DTMobile.html)  | mobile:`string`,<br/> | 手机号脱敏处理  |
+| 2    | [`createRandomVerifyCode`](./createRandomVerifyCode.html)  | num:`number`,<br/> type:`string | string[]` | 生成一个有长度的随机字符串验证码  |
 ::: tip
 点击API名称，可以直接进入对应API详情页面！
 :::

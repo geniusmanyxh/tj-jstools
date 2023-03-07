@@ -182,6 +182,7 @@ SInstance.getFun('test') // tj@test@jstools: testValue ; 过期时间：2天
 | ---- | :--------------: | --------------------------- |
 | 1    | `charInCounts` | 计算字符串中指定字符出现的次数 |
 | 2    | `DTMobile` | 手机号脱敏处理  |
+| 3    | `createRandomVerifyCode` | 生成随机字符串验证码  |
 
 ### 数值篇(Number)
 
