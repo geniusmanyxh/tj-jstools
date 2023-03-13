@@ -147,13 +147,13 @@ class ComStorage implements IComStorageFun {
     for (let i = 0; i < OptionsDefaultProp.length; i++) {
       Config[OptionsDefaultProp[i]] = this[OptionsDefaultProp[i]];
     }
-    console.log(Config);
+    // console.log(Config);
 
     if (!isUndefined(options)) {
       Config = { ...Config, ...options };
     }
 
-    console.log(Config);
+    // console.log(Config);
 
     const jointKeyParams: jointParamsType = {
       key,
@@ -248,9 +248,9 @@ class ComStorage implements IComStorageFun {
         tempData !== "undefined" &&
         tempData !== "null"
       ) {
+        const getStorageData = JSON.parse(tempData);
         if (isJson(tempData)) {
           const nowTime = Date.now();
-          const getStorageData = JSON.parse(tempData);
           // console.log("getStorageData", getStorageData);
           if (getStorageData && getStorageData._tj_expireTime) {
             if (getStorageData._tj_expireTime > nowTime) {
@@ -280,7 +280,11 @@ class ComStorage implements IComStorageFun {
         } else {
           // 只是一个字符串
           // console.log("11115");
-          rtnData = tempData;
+          if (getStorageData && getStorageData._tj_value) {
+            rtnData = JSON.parse(getStorageData._tj_value);
+          } else {
+            rtnData = tempData;
+          }
         }
       }
     }
