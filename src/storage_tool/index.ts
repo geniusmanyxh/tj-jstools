@@ -147,10 +147,13 @@ class ComStorage implements IComStorageFun {
     for (let i = 0; i < OptionsDefaultProp.length; i++) {
       Config[OptionsDefaultProp[i]] = this[OptionsDefaultProp[i]];
     }
+    console.log(Config);
 
     if (!isUndefined(options)) {
       Config = { ...Config, ...options };
     }
+
+    console.log(Config);
 
     const jointKeyParams: jointParamsType = {
       key,
@@ -161,17 +164,17 @@ class ComStorage implements IComStorageFun {
     key = jointKey(jointKeyParams);
 
     const dataExpTime =
-      (Config.expireTime as number) *
-        FormatUnitTime[Config.unitTime as string] +
-      new Date().getTime();
+      (Config.expireTime as number) * FormatUnitTime[Config.unitTime as string];
 
-    console.log("time", dataExpTime);
+    // console.log("time", dataExpTime);
     if (!isString(value)) {
       value = value ? JSON.stringify(value) : "undefined";
     }
     if (this.instanceType === "cookie") {
       if (dataExpTime > 0) {
-        (Config as IComCookieBasicProp).expires = new Date(dataExpTime);
+        (Config as IComCookieBasicProp).expires = new Date(
+          dataExpTime + new Date().getTime()
+        );
       }
       const cookieOpt = {};
       OptionsCookieProp.forEach((key) => {
@@ -187,10 +190,11 @@ class ComStorage implements IComStorageFun {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
       ] as Storage;
-      const saveData = {
-        _tj_value: value,
-        _tj_expireTime: dataExpTime,
-      };
+      const saveData: any = { _tj_value: value };
+      if (dataExpTime > 0) {
+        saveData._tj_expireTime = dataExpTime + new Date().getTime();
+      }
+
       Instance.setItem(key, encodeURIComponent(JSON.stringify(saveData)));
     }
   }
@@ -238,23 +242,44 @@ class ComStorage implements IComStorageFun {
         this.instanceType as StorageType
       ] as Storage;
       const tempData = decodeURIComponent(Instance.getItem(key) as string);
-      if (isString(tempData)) {
+      // console.log("tempData", tempData);
+      if (
+        isString(tempData) &&
+        tempData !== "undefined" &&
+        tempData !== "null"
+      ) {
         if (isJson(tempData)) {
           const nowTime = Date.now();
           const getStorageData = JSON.parse(tempData);
-          if (
-            getStorageData &&
-            getStorageData._tj_expireTime &&
-            getStorageData._tj_expireTime > nowTime
-          ) {
-            if (getStorageData._tj_value && isJson(getStorageData._tj_value)) {
-              rtnData = JSON.parse(getStorageData._tj_value);
+          // console.log("getStorageData", getStorageData);
+          if (getStorageData && getStorageData._tj_expireTime) {
+            if (getStorageData._tj_expireTime > nowTime) {
+              // console.log("1111");
+              if (
+                getStorageData._tj_value &&
+                isJson(getStorageData._tj_value)
+              ) {
+                // console.log("11112");
+                rtnData = JSON.parse(getStorageData._tj_value);
+              } else {
+                // console.log("11113");
+                rtnData = getStorageData._tj_value;
+              }
             } else {
-              rtnData = getStorageData._tj_value;
+              rtnData = undefined;
+            }
+          } else {
+            // console.log("11114");
+            let val = getStorageData._tj_value;
+            if (val !== "undefined") {
+              return JSON.parse(val);
+            } else {
+              return val;
             }
           }
         } else {
           // 只是一个字符串
+          // console.log("11115");
           rtnData = tempData;
         }
       }

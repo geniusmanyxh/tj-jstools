@@ -69,16 +69,16 @@
 
 
 
-    // const tCookie = this._tj.newStorage('cookie',{prefix:'ddd',expireTime:1000,unitTime:'ms'})
-    // console.log(tCookie)
-    // tCookie.setFun('key55',{a:'6666'})
-    // tCookie.setFun('key',{obj:'test setFun'})
-    // tCookie.setFun('key556',)
-    // console.log(tCookie.existFun('key55'))
-    // setTimeout(() => {
-    //   let a = tCookie.getFun('key556')
-    //   console.log(a,typeof a)
-    // }, 500);
+    const tCookie = this._tj.newStorage('session',{prefix:'ddd'})
+    console.log(tCookie)
+    tCookie.setFun('key55',{a:'6666'})
+    tCookie.setFun('key',{obj:'test setFun'})
+    tCookie.setFun('key556',)
+    console.log(tCookie.existFun('key55'))
+    setTimeout(() => {
+      let a = tCookie.getFun('key556')
+      console.log(a,typeof a)
+    }, 500);
     
     // setTimeout(()=>{
     //   console.log(tCookie.existFun('key55'))
