@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
- <script src="../static/umd/index.js"></script>
+ <!-- <script src="../static/umd/index.js"></script> -->
  <!-- <script src="../static/umd/index.d.ts"></script> -->
+ <script src="./testhc.js" type="module"></script>
 </head>
 <body>
   <button onclick=" openFull()">openFull</button>
@@ -27,58 +28,58 @@
   <div style="height:8000px ; width: 100%; background-color: aquamarine;">22</div>
   <button onclick="backTop()">backtop</button>
   <script>  
-    console.log(this._tj)
-    const tj = this._tj 
-    // tj.openFull()scrollProgressBar, scrollBackTop
-    function backTop () {
-      tj.scrollBackTop(0.3,10)
-    }
+    // console.log(this._tj)
+    // const tj = this._tj 
+    // // tj.openFull()scrollProgressBar, scrollBackTop
+    // function backTop () {
+    //   tj.scrollBackTop(0.3,10)
+    // }
 
-    document.addEventListener('scroll',function(){
+    // document.addEventListener('scroll',function(){
       
-      console.log(tj.scrollProgressBar())
-    })
+    //   console.log(tj.scrollProgressBar())
+    // })
     
-    function openFull () {
-      tj.openFull(document.getElementById('kkk'),{navigationUI:'show'})
-    }
-    function isFull () {
-      console.log('isfull',tj.isFull())
-    }
+    // function openFull () {
+    //   tj.openFull(document.getElementById('kkk'),{navigationUI:'show'})
+    // }
+    // function isFull () {
+    //   console.log('isfull',tj.isFull())
+    // }
 
-    function getFullEl () {
-      console.log('getFullEl',tj.getFullEl())
-    }
+    // function getFullEl () {
+    //   console.log('getFullEl',tj.getFullEl())
+    // }
 
-    function exitFull () {
-      tj.closeFull()
-    }
+    // function exitFull () {
+    //   tj.closeFull()
+    // }
 
-    function toggleFull () {
-      tj.toggleFull()
-    }
-    function isFullEnabled() {
-      console.log('isFullEnabled',tj.isFullEnabled())
-    }
-    isFull()
-    exitFull()
-    toggleFull()
-    getFullEl()
-    isFullEnabled()
-
-
+    // function toggleFull () {
+    //   tj.toggleFull()
+    // }
+    // function isFullEnabled() {
+    //   console.log('isFullEnabled',tj.isFullEnabled())
+    // }
+    // isFull()
+    // exitFull()
+    // toggleFull()
+    // getFullEl()
+    // isFullEnabled()
 
 
-    const tCookie = this._tj.newStorage('session',{prefix:'ddd'})
-    console.log(tCookie)
-    tCookie.setFun('key55',{a:'6666'})
-    tCookie.setFun('key',{obj:'test setFun'})
-    tCookie.setFun('key556',)
-    console.log(tCookie.existFun('key55'))
-    setTimeout(() => {
-      let a = tCookie.getFun('key556')
-      console.log(a,typeof a)
-    }, 500);
+
+
+    // const tCookie = this._tj.newStorage('session',{prefix:'ddd'})
+    // console.log(tCookie)
+    // tCookie.setFun('key55',{a:'6666'})
+    // tCookie.setFun('key',{obj:'test setFun'})
+    // tCookie.setFun('key556',)
+    // console.log(tCookie.existFun('key55'))
+    // setTimeout(() => {
+    //   let a = tCookie.getFun('key556')
+    //   console.log(a,typeof a)
+    // }, 500);
     
     // setTimeout(()=>{
     //   console.log(tCookie.existFun('key55'))

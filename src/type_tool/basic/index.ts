@@ -23,7 +23,7 @@ function isJson(value: unknown): boolean {
         return false;
       }
     } catch (e) {
-      console.log("error：" + value + "!!!" + e);
+      // console.log("error：" + value + "!!!" + e);
       return false;
     }
   }

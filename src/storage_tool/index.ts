@@ -177,12 +177,11 @@ class ComStorage implements IComStorageFun {
         );
       }
       const cookieOpt = {};
-      OptionsCookieProp.forEach((key) => {
+      for (const key of OptionsCookieProp) {
         if (!isUndefined(Config[key])) {
           cookieOpt[key] = Config[key];
         }
-      });
-      // console.log(cookieOpt)
+      }
       Cookies.set(key, value, cookieOpt);
       // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
       // Instance.set(key, value,cookieOpt)
@@ -241,50 +240,39 @@ class ComStorage implements IComStorageFun {
       const Instance = StorageTypeInstance[
         this.instanceType as StorageType
       ] as Storage;
-      const tempData = decodeURIComponent(Instance.getItem(key) as string);
+      const tempData = Instance.getItem(key) as string;
       // console.log("tempData", tempData);
-      if (
-        isString(tempData) &&
-        tempData !== "undefined" &&
-        tempData !== "null"
-      ) {
-        const getStorageData = JSON.parse(tempData);
-        if (isJson(tempData)) {
+      if (isString(tempData)) {
+        const tem = decodeURIComponent(tempData);
+        if (isJson(tem)) {
           const nowTime = Date.now();
+          const getStorageData = JSON.parse(tem);
           // console.log("getStorageData", getStorageData);
           if (getStorageData && getStorageData._tj_expireTime) {
             if (getStorageData._tj_expireTime > nowTime) {
-              // console.log("1111");
-              if (
-                getStorageData._tj_value &&
-                isJson(getStorageData._tj_value)
-              ) {
-                // console.log("11112");
+              if (isJson(getStorageData._tj_value)) {
                 rtnData = JSON.parse(getStorageData._tj_value);
               } else {
-                // console.log("11113");
                 rtnData = getStorageData._tj_value;
               }
             } else {
               rtnData = undefined;
             }
           } else {
-            // console.log("11114");
-            let val = getStorageData._tj_value;
-            if (val !== "undefined") {
-              return JSON.parse(val);
+            // 判断对象里面是否存在特殊属性
+            if (getStorageData._tj_value) {
+              if (isJson(getStorageData._tj_value)) {
+                rtnData = JSON.parse(getStorageData._tj_value);
+              } else {
+                rtnData = getStorageData._tj_value;
+              }
             } else {
-              return val;
+              rtnData = getStorageData;
             }
           }
         } else {
           // 只是一个字符串
-          // console.log("11115");
-          if (getStorageData && getStorageData._tj_value) {
-            rtnData = JSON.parse(getStorageData._tj_value);
-          } else {
-            rtnData = tempData;
-          }
+          rtnData = tem;
         }
       }
     }
@@ -320,11 +308,12 @@ class ComStorage implements IComStorageFun {
 
     if (this.instanceType === "cookie") {
       const cookieOpt = {};
-      OptionsCookieProp.forEach((key) => {
+
+      for (const key of OptionsCookieProp) {
         if (!isUndefined(Config[key])) {
           cookieOpt[key] = Config[key];
         }
-      });
+      }
       // const Instance = StorageTypeInstance['cookie'] as Cookies.CookiesStatic
       if (Object.keys(cookieOpt).length === 0) {
         Cookies.remove(key);
