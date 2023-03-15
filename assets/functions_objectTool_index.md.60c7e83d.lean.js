@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./app.11df485f.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"functions/objectTool/index.md","lastUpdated":1678848564000}'),n={name:"functions/objectTool/index.md"};function a(c,s,r,d,i,p){return o(),t("div")}const l=e(n,[["render",a]]);export{f as __pageData,l as default};
