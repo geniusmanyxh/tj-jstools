@@ -12,7 +12,7 @@ function isNumType(name: string, type: string) {
 
 function isFloat(params: unknown): boolean {
   if (arguments.length === 0) {
-    paramsNullError(`isFloat方法的`);
+    paramsNullError("isFloat方法的");
   }
   const flag = typeof params === "number";
   const y = String(params).indexOf(".") + 1; // 获取小数点后的个数
@@ -22,7 +22,7 @@ function isFloat(params: unknown): boolean {
 
 function isInfinite(params: unknown): boolean {
   if (arguments.length === 0) {
-    paramsNullError(`isInfinite方法的`);
+    paramsNullError("isInfinite方法的");
   }
   const flag = typeof params === "number";
   return flag && !Number.isFinite(params) && !Number.isNaN(params);

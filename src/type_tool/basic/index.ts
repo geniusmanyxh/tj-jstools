@@ -12,7 +12,7 @@ const isBasicType = function isType(type: string) {
 };
 function isJson(value: unknown): boolean {
   if (arguments.length === 0) {
-    paramsNullError(`isJson方法的`);
+    paramsNullError("isJson方法的");
   }
   if (typeof value === "string") {
     try {
