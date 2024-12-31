@@ -16,7 +16,7 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.cjs'],
   rules: {
-    quotes: ['error', 'avoid-escape'], // 允许任意一种引号，但避免转义字符
+    // quotes: ['error', 'avoid-escape'], // 允许任意一种引号，但避免转义字符
     'prettier/prettier': ['error', { endOfLine: 'auto', singleQuote: false }],
   },
 };
