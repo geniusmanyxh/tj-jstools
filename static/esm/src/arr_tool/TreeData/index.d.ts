@@ -1,4 +1,4 @@
-declare type treeOption = {
+type treeOption = {
     pidName: string;
     idName: string;
     childName: string;

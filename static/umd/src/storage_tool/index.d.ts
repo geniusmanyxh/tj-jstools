@@ -1,5 +1,5 @@
-declare type UnitTimeType = "ms" | "s" | "min" | "h" | "d" | "w" | "m" | "y";
-declare type StorageType = "cookie" | "local" | "session";
+type UnitTimeType = "ms" | "s" | "min" | "h" | "d" | "w" | "m" | "y";
+type StorageType = "cookie" | "local" | "session";
 interface IComStorageBasicProp {
     prefix?: string;
     suffix?: string;

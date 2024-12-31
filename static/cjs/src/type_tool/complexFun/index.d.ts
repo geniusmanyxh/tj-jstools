@@ -1,10 +1,10 @@
-declare type returnTypeStr = "string" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" | "array" | "object" | "date" | "null" | "int" | "float" | "infinite" | "NaN";
-declare type arrayTypeDetail = {
+type returnTypeStr = "string" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" | "array" | "object" | "date" | "null" | "int" | "float" | "infinite" | "NaN";
+type arrayTypeDetail = {
     index: string | number;
     value: any;
     type: returnTypeStr;
 };
-declare type objectTypeDetail = {
+type objectTypeDetail = {
     key: string;
     value: any;
     type: returnTypeStr;

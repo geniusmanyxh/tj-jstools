@@ -1,6 +1,6 @@
-const { createRandomVerifyCode } = require("tj-jstools");
+const { formatChineseRMB } = require("tj-jstools");
 
-const code = createRandomVerifyCode(6, ["S", "s", "n"]);
+const code = formatChineseRMB(1906);
 
 console.log(code);
 

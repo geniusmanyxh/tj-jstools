@@ -1,9 +1,9 @@
 interface IParamsType {
     [key: string]: string;
 }
-declare type parseUrlType = "splitType" | "URLSearchParamsType" | "RegExpType";
-declare type decodeUrlType = "noneType" | "decodeURIType" | "decodeURIComponentType";
-declare type encodeUrlType = "noneType" | "encodeURIType" | "encodeURIComponentType";
+type parseUrlType = "splitType" | "URLSearchParamsType" | "RegExpType";
+type decodeUrlType = "noneType" | "decodeURIType" | "decodeURIComponentType";
+type encodeUrlType = "noneType" | "encodeURIType" | "encodeURIComponentType";
 interface IConverParamsConfig {
     url: string;
     hashValue: string;

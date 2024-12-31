@@ -1,8 +1,8 @@
 /**
  *@description 写一个通用的随机字符串验证码
  */
-declare type VerifyCodeType = "n" | "s" | "S";
-declare type VerifyCodeFunc = (num: number, type?: VerifyCodeType | VerifyCodeType[]) => string;
+type VerifyCodeType = "n" | "s" | "S";
+type VerifyCodeFunc = (num: number, type?: VerifyCodeType | VerifyCodeType[]) => string;
 /**
  * @description 随机生成字符串的验证码
  * @param num 验证码位数
