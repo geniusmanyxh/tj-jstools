@@ -86,3 +86,6 @@ import { formatChineseRMB } from './num_tool/formatChineseRMB'
 import { numberThousandsFormat } from './num_tool/numberThousandsFormat'
 
 export { formatChineseRMB , numberThousandsFormat}
+
+// -------------- time_tool--------------
+export * from './time_tool/index'

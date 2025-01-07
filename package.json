@@ -4,7 +4,7 @@
   "description": "A diverse JS tool library",
   "main": "static/cjs/index.js",
   "module": "static/esm/index.js",
-  "types": "static/esm/index.d.ts",
+  "types": "static/esm/src/index.d.ts",
   "files": [
     "static/"
   ],

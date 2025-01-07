@@ -19,3 +19,4 @@ export { toTreeData, treeToFlat, findTreeData };
 import { formatChineseRMB } from './num_tool/formatChineseRMB';
 import { numberThousandsFormat } from './num_tool/numberThousandsFormat';
 export { formatChineseRMB, numberThousandsFormat };
+export * from './time_tool/index';
