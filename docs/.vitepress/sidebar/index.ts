@@ -34,7 +34,8 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
     browser_tool: '/functions/browserTool/',
     string_tool: '/functions/stringTool/',
     array_tool:'/functions/arrayTool/',
-    number_tool:'/functions/numberTool/'
+    number_tool:'/functions/numberTool/',
+    time_tool:'/functions/timeTool/'
   }
   const joinTypeUrl = joinUrl(baseUrl.type_tool)
   const joinURLUrl = joinUrl(baseUrl.url_tool)
@@ -43,6 +44,7 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
   const joinStringTool = joinUrl(baseUrl.string_tool)
   const joinArrayTool = joinUrl(baseUrl.array_tool)
   const joinNumberTool = joinUrl(baseUrl.number_tool)
+  const joinTimeTool = joinUrl(baseUrl.time_tool)
   const rtnSider:DefaultTheme.SidebarGroup[] = [
     
     {
@@ -72,6 +74,32 @@ function siderbarFunction ():DefaultTheme.SidebarGroup[] {
         { text: 'getArrayTypeDetail', link: joinTypeUrl('getArrayTypeDetail')},
         { text: 'getObjectAllType', link: joinTypeUrl('getObjectAllType')},
         { text: 'getObjectTypeDetail', link: joinTypeUrl('getObjectTypeDetail')},
+      ]
+    },
+    {
+      text: '时间篇',
+      collapsible: true, // 开启可折叠侧边栏
+      collapsed: true, // 初始加载页面时关闭
+      items: [
+        { text: '函数列表概览', link: joinTimeTool() },
+        { text: 'getSeason',link:joinTimeTool('getSeason')},
+        { text: 'calculateStartEndTime', link: joinTimeTool('calculateStartEndTime')},
+        { text: 'getStartEndTime', link: joinTimeTool('getStartEndTime')},
+        { text: 'getStartEndTimeByPeriod', link: joinTimeTool('getStartEndTimeByPeriod')},
+        { text: 'getWeekday', link: joinTimeTool('getWeekday')},
+        { text: 'getAmPm', link: joinTimeTool('getAmPm')},
+        { text: 'convertRelativeTime', link: joinTimeTool('convertRelativeTime')},
+        { text: 'isLeapYearRes', link: joinTimeTool('isLeapYearRes')},
+        { text: 'getAllHolidays', link: joinTimeTool('getAllHolidays')},
+        { text: 'getHolidayByDate', link: joinTimeTool('getHolidayByDate')},
+        { text: 'getHolidaysInRange', link: joinTimeTool('getHolidaysInRange')},
+        { text: 'getNextHoliday', link: joinTimeTool('getNextHoliday')},
+        { text: 'getTimeDifference', link: joinTimeTool('getTimeDifference')},
+        { text: 'calculateAge', link: joinTimeTool('calculateAge')},
+        { text: 'addTime', link: joinTimeTool('addTime')},
+        { text: 'subtractTime', link: joinTimeTool('subtractTime')},
+        { text: 'getZodiac', link: joinTimeTool('getZodiac')},
+        { text: 'getConstellation', link: joinTimeTool('getConstellation')},
       ]
     },
     {

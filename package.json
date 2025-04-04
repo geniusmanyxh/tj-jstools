@@ -102,5 +102,12 @@
     "core-js": "^3.25.2",
     "dayjs": "^1.11.13",
     "js-cookie": "^3.0.1"
+  },
+  "exports": {
+    ".": {
+      "require": "./static/cjs/index.js",
+      "import": "./static/esm/index.js",
+      "types": "./static/esm/src/index.d.ts"
+    }
   }
 }

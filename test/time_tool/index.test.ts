@@ -23,7 +23,7 @@ import {
 
 describe("时间工具函数测试", () => {
   it("测试 getSeason", () => {
-    expect(getSeason("2023-03-15")).toEqual({
+    expect(getSeason("2023-01-15")).toEqual({
       index: 0,
       name: "春",
       prop: "spring",
